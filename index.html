@@ -202,6 +202,53 @@ margin-top:0px;
 padding-top:30px;}
 #Work p{font-size:22px;}
 
+/* Style for gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Style for individual images */
+.image {
+  position: relative;
+  overflow: hidden;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image:hover img {
+  transform: scale(1.1);
+}
+
+.image:hover .overlay {
+  opacity: 1;
+}
+  
+
+
+
+
+  
 #rate{height:auto;
 background-color:#006A6A;
   color:#FFFCF6;   }
@@ -518,6 +565,15 @@ padding-right:50px;
 <h1 style="color:#4151af;" >Our Work</h1>
 <p style="color:  " >Check out some of the amazing work we've done to provide genuine insights and valuable recommendations to our community.</p>
 
+  <div class="gallery">
+    <div class="image">
+      <img src=1716257786442.jpg" alt="Image 1">
+      <div class="overlay">
+        <h2>Title of Image 1</h2>
+      </div>
+    </div>
+    <!-- Add more image divs here -->
+  </div>
 </section>
 
 <section id="rate">
