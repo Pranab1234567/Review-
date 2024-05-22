@@ -74,7 +74,20 @@ border-radius:50%;
       background-color: #FFFCF6 !important;
       color: #006A6A !important;
 }
+  .normal {
+    background-color: #FFFCF6;
+    color: #006A6A;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
+  .normal:hover {
+    background-color: #006A6A;
+    color: #FFFCF6;
+  }
 @media screen and (max-width:768px){
 #know{padding:0 20px;background-position:left;height:70vh;width:100%;}
 h4{font-size:32px;}
@@ -184,7 +197,7 @@ h1{font-size:38px;}
 <input type="text" placeholder="E-mail">
 <input type="text" placeholder="Subject">
 <textarea name="" id="" cols="30" rows="10" placeholder="your message"></textarea>
-<button class="normal" style="background-color:#FFFCF6;" style="color:#006A6A;" >Submit</button>
+<button class="normal" >Submit</button>
 </form>
 
 <div class="people">
