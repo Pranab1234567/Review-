@@ -279,7 +279,143 @@ text-align:center;
 }
 
 
+.page {
+  display: none;
+}
 
+.page.active {
+  display: block;
+}
+
+/* Product List Flex Layout */
+#products-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#products-list li {
+  list-style: none;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #006A6A;
+  border-color: ;
+  width: calc(33.333% - 20px); /* Three items per row */
+  background-color:#FFFCF6;
+}
+
+#products-list li img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  #products-list li {
+    width: calc(50% - 20px); /* Two items per row on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  #products-list li {
+    width: 100%; /* One item per row on mobile */
+  }
+}
+
+
+
+
+
+
+
+/* General Styles */
+
+
+.page {
+  display: none;
+  padding: 20px;
+}
+
+.page.active {
+  display: block;
+}
+
+/* Product Details Layout */
+#product-details-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#product-details-page h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#product-ratings {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.rating-category {
+  flex: 1;
+  text-align: center;
+}
+
+.rating {
+  margin-top: 5px;
+}
+
+#product-description {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+#product-price {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+button {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#feedback-section {
+  margin-top: 40px;
+}
+
+#feedback-section h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.feedback-list {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
 
 
 </style>
