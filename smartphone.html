@@ -618,6 +618,9 @@ button:hover {
    
    <label for="camera-rating">Camera:</label>
    <input type="number" id="camera-rating" name="camera-rating" min="1" max="5"><br><br>
+
+     <label for="battery-rating">Battery:</label>
+   <input type="number" id="battery-rating" name="battery-rating" min="1" max="5"><br><br>
    
    <!-- Add a file input for uploading a video -->
    <label for="user-video">Upload Video:</label>
@@ -1023,8 +1026,9 @@ button:hover {
   const quality = formData.get('quality-rating');
   const performance = formData.get('performance-rating');
   const camera = formData.get('camera-rating');
+  const battery = formData.get('battery-rating');
   
-  if (!name || !email || !comments || !quality || !performance || !camera) {
+  if (!name || !email || !comments || !quality || !performance || !camera || !battery) {
   alert('Please fill out all required fields.');
   return;
   }
