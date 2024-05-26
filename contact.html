@@ -20,6 +20,7 @@ body{width:100%;height:100%;
 
 
 }
+/*
 #know{
 background-image:url("contact-us-concept-landing-page_52683-12860.jpg");
 height:85vh;width:100%;background-size:cover;color:#fff;
@@ -31,6 +32,74 @@ margin-top:55px;
 color:blue;
 }
 #know h4{color:#16c4b6;}
+*/
+
+#know {
+    background-image: url("contact-us-concept-landing-page_52683-12860.jpg");
+    height: 85vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 55px;
+}
+
+#know h1 {
+    padding-bottom: 15px;
+    color: blue;
+    font-size: 2.5rem; /* Adjust the font size as needed */
+}
+
+#know h4 {
+    color: #16c4b6;
+    font-size: 1.5rem; /* Adjust the font size as needed */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    #know {
+        height: auto;
+        padding: 20px;
+    }
+
+    #know h1 {
+        font-size: 2rem; /* Smaller font size for mobile */
+    }
+
+    #know h4 {
+        font-size: 1.2rem; /* Smaller font size for mobile */
+    }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+    #know {
+        height: auto;
+        padding: 10px;
+        align-items: center; /* Center align for very small screens */
+        text-align: center; /* Center text for very small screens */
+    }
+
+    #know h1 {
+        font-size: 1.8rem; /* Adjusted font size */
+    }
+
+    #know h4 {
+        font-size: 1rem; /* Adjusted font size */
+    }
+}
+
+
+
+
+  
 #contact-details{display:flex;align-items:center;justify-content:space-between;
      color:#006A6A;
       background-color:#FFFCF6;       
