@@ -31,6 +31,10 @@ margin-top:55px;
 #know h1{padding-botton:15px;
 }
 #know h4{color:#3F51B5;}
+
+
+
+  /*
 #prodetails{background-color: ;
       color: #FFFCF6 ;
       background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);     
@@ -62,6 +66,91 @@ padding:5px 10px;margin-bottom:10px;
 
 #prodetails .single-pro-details span{line-height:25px;}
 #prodetails .single-pro-details marque{width:100%;font-size:25px;}
+*/
+
+#prodetails {
+    background-color: ;
+    color: #FFFCF6;
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 0px;
+}
+
+#prodetails .single-pro-image {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#prodetails .single-pro-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-width: 500px; /* Adjust max-width to control image size on desktop */
+}
+
+#prodetails .single-pro-details {
+    width: 100%;
+    max-width: 600px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+#prodetails .single-pro-details h2 {
+    font-size: 26px;
+}
+
+#prodetails .single-pro-details p {
+    font-size: 18px;
+}
+
+#prodetails .single-pro-details select {
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+#prodetails .single-pro-details span {
+    line-height: 25px;
+}
+
+#prodetails .single-pro-details marque {
+    width: 100%;
+    font-size: 25px;
+}
+
+/* Media query for larger screens */
+@media (min-width: 768px) {
+    #prodetails {
+        flex-direction: row;
+    }
+
+    #prodetails .single-pro-details {
+        width: 50%;
+        padding-top: 10%;
+    }
+
+    #prodetails .single-pro-image {
+        width: 50%;
+        padding-top: 0;
+    }
+
+    #prodetails .single-pro-image img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+
+
+
+  
 #join{
 height:auto;
 color:#fff;
