@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/font-size/font-size.css">
+<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/padding/padding.css">
+<style type="text/css">
+*{margim:0;padding:0;box-sizing:border-box;}
+body{width:100%;height:100%;}
+.back-button {
+display: inline-block;
+padding: 10px 20px;
+background-color: #007bff;
+color: #fff;
+text-decoration: none;
+border-radius: 5px;
+font-weight: bold;
+  margin-top: 70px;
+}
+
+.back-button:hover {
+background-color: #0056b3;
+}
+.heading{margin-top:30px;text-align:center;background-color:#FFFCF6;}
+hr {
+  width: 50%; 
+  height: 2px; 
+  margin: 0 auto; 
+  background-color: #f3971b; 
+}
+#feature {display:flex;align_items:center;
+justify-content:space-between;flex-wrap:wrap;
+margin-top:40px;background-color:#FFFCF6;color:#006A6A;
+}
+
+#feature .fe-box{width:200px;text-align:center;
+padding:25px 15px;box-shadow:20px 20px 34px rgba(0,0,0,0.03);
+border:1px solid #cce7d0;border-radius:5px;margin:15px 0;
+}
+#feature .fe-box:hover{box-shadow:10px 10px 54px rgba(20,63,221,0.1);}
+#feature .fe-box h6{display:inline-block;
+padding:9px 8px 6px 8px;line-height:1;border-radius:4px;
+color:#013178;background-color:#fddde4;
+}
+#feature .fe-box img{width:100%;margin-bottom:10px;}
+#feature .fe-box:nth-child(2) h6{background-color:#f3971b;}
+#feature .fe-box:nth-child(3) h6{background-color:aqua;}
+#feature .fe-box:nth-child(4) h6{background-color:lime;}
+#feature .fe-box:nth-child(5) h6{background-color:tomato;}
+#feature .fe-box:nth-child(6) h6{background-color:#f3971b;}
+#feature .fe-box:nth-child(7) h6{background-color:lime;}
+#feature .fe-box:nth-child(8) h6{background-color:aqua;}
+#feature .fe-box:nth-child(9) h6{background-color:;}
+#feature .fe-box:nth-child(10) h6{background-color:tomato;}
+
+#join{
+height:auto;
+background-color: ;color: #FFFCF6 ;
+  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+text-align:center;
+margin-top:30px;
+  padding-bottom:30px;
+}
+#join h1{font-size:40px;
+text-align:center;
+padding-top:60px;}
+#join p{font-size:22px;
+text-align:center;
+padding-top:20px;
+padding-left:50px;
+padding-right:50px;
+}
+#join .b{padding-top:50px; 
+        
+        }
+        
+    .bg-light, .link-secondary {
+    background-color: #FFFCF6 !important;
+    color: #006A6A !important;
+    }
+@media screen and (max-width:768px){
+
+#feature .fe-box{width:155px;margin:0 0 15px 0;}
+#feature{justify-content:center;}
+#join{height: auto; /* Adjust height as needed */
+padding: 10px;
+text-align:center;
+}
+
+}
+
+
+
+
+</style>
+<body>
+<nav class="navbar bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Logo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="catagory.html">Review</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<a href="catagory.html" class="back-button">&#8592; Back</a>
+  
+
+<div class="heading">
+<h1 style="color:#4151af;">Choose Your Catagory</h1>
+<hr style="color:#f3971b;">
+</div>
+
+<section id="feature"class="section-p1">
+
+<div class="fe-box">
+
+<img src="/storage/emulated/0/Pictures/6000204710732.jpg">
+<h6>Kitchen Items</h6>
+
+</div>
+
+<div class="fe-box">
+<a href="" ><img src="/storage/emulated/0/Pictures/IMG_20240530_202342.jpg"></a>
+<h6>Home Furnishings</h6>
+</div>
+
+<div class="fe-box">
+<a href="#" ><img src="/storage/emulated/0/Pictures/Tools-at-workbench-1442607700-600x360.jpg"></a>
+<h6>Home Improvement Tools</h6>
+</div>
+
+<div class="fe-box">
+<a href="#" ><img src="/storage/emulated/0/Pictures/625667855cf3e5fe1f527769eba5e723.jpg"></a>
+<h6>Decor & Lighting</h6>
+</div>
+
+
+</section>
+
+<section id="join">
+<h1 style="" >Ready to Unlock Genuine Insights?</h1>
+<p style="" >Join PhoneInsights today to discover authentic user reviews,
+ personalized recommendations, and trusted community feedback. Make the best decisions for your
+  next phone purchase.</p>
+  <div class="b">
+  <button type="button" class="btn btn-primary btn-lg">Sign Up Now</button>
+  <button type="button" class="btn btn-secondary btn-lg">Learn More</button>
+  </div>
+</section>
+
+
+
+
+
+<footer class="footer">
+
+  
+  <section class="bg-light py-4 py-md-5 py-xl-8 border-top border-light">
+    <div class="">
+      <div class="row gy-4 gy-lg-0 justify-content-xl-between">
+        <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+          <div class="widget">
+            <a href="#!">
+              <img src="bsb-logo.svg" alt=" Logo" width="175" height="57">
+            </a>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+          <div class="widget">
+            <h4 class="widget-title mb-4" style="color:#4151af;">Get in Touch</h4>
+            <address class="mb-4">Remuna Balasore ,Odisha India</address>
+            <p class="mb-1">
+              <a class="link-secondary text-decoration-none" href="tel:+15057922430">(505) 792-2430</a>
+            </p>
+            <p class="mb-0">
+              <a class="link-secondary text-decoration-none" href="pranabmahalik1@gmail.com">pranabmahalik1@gmail.com</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+          <div class="widget">
+            <h4 class="widget-title mb-4" style="color:#4151af;">Learn More</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#!" class="link-secondary text-decoration-none">About</a>
+              </li>
+              <li class="mb-2">
+                <a href="#!" class="link-secondary text-decoration-none">Contact</a>
+              </li>
+              <li class="mb-2">
+                <a href="#!" class="link-secondary text-decoration-none">Advertise</a>
+              </li>
+              <li class="mb-2">
+                <a href="#!" class="link-secondary text-decoration-none">Terms of Service</a>
+              </li>
+              <li class="mb-0">
+                <a href="#!" class="link-secondary text-decoration-none">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-xl-4">
+          <div class="widget">
+            <h4 class="widget-title mb-4" style="color:#4151af;">Our Newsletter</h4>
+            <p class="mb-4">Subscribe to our newsletter to get our news & discounts delivered to you.</p>
+            <form action="#!">
+              <div class="row gy-4">
+                <div class="col-12">
+                  <div class="input-group">
+                    <span class="input-group-text" id="email-newsletter-addon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                      </svg>
+                    </span>
+                    <input type="email" class="form-control" id="email-newsletter" value="" placeholder="Email Address" aria-label="email-newsletter" aria-describedby="email-newsletter-addon" required>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="d-grid">
+                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Copyright - Bootstrap Brain Component -->
+  <div class="bg-light py-4 py-md-5 py-xl-8 border-top border-light-subtle">
+    <div class="">
+      <div class="row gy-4 gy-md-0 align-items-md-center">
+        <div class="col-xs-12 col-md-7 order-1 order-md-0">
+          <div class="copyright text-center text-md-start">
+            &copy; 2024. All Rights Reserved.
+          </div>
+          <div class="credits text-secondary text-center text-md-start mt-2 fs-8">
+            Built by <a href="https://bootstrapbrain.com/" class="link-secondary text-decoration-none">Pranab</a> with <span class="text-primary">&#9829;</span>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-5 order-0 order-md-1">
+          <div class="social-media-wrapper">
+            <ul class="list-unstyled m-0 p-0 d-flex justify-content-center justify-content-md-end">
+              <li class="me-3">
+                <a href="#!" class="link-dark link-opacity-75-hover">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="me-3">
+                <a href="#!" class="link-dark link-opacity-75-hover">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="me-3">
+                <a href="#!" class="link-dark link-opacity-75-hover">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="">
+                <a href="#!" class="link-dark link-opacity-75-hover">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
