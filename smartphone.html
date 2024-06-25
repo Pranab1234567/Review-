@@ -8,6 +8,11 @@
   <meta name="author" content="John Doe">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Add Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+
 </head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -542,102 +547,76 @@ button:hover {
 
 
 
+<!-- Categories Page (Initial View) -->
+<div id="category-page" class="page">
+  <!-- Category content will go here -->
+</div>
 
 <!-- Products Page -->
-   <div id="products-page" class="page">
-     <h1 id="category-title"></h1>
-     <ul id="products-list"></ul>
-     <button onclick="showCategory()">Back to Categories</button>
-   </div>
+<div id="products-page" class="page">
+  <h1 id="category-title"></h1>
+  <ul id="products-list"></ul>
+  <button onclick="showCategory()">Back to Categories</button>
+</div>
 
-   <!-- Product Details Page -->
-   <div id="product-details-page" class="page">
-     <h1 id="product-title">iPhone 13 Pro</h1>
-     <img id="product-image" src="/storage/emulated/0/Pictures/Screenshots/IMG_20240513_175505.jpg" alt="" style="width: 300px; height: auto;">
-     
-     <div id="product-ratings">
-     <div id="price-rating" class="rating-category">
-     <strong>Price:</strong>
-     <div class="rating" id="price-rating-stars"></div>
-     </div>
-     <div id="camera-rating" class="rating-category">
-     <strong>Camera:</strong>
-     <div class="rating" id="camera-rating-stars"></div>
-     </div>
-     <div id="performance-rating" class="rating-category">
-     <strong>Performance:</strong>
-     <div class="rating" id="performance-rating-stars"></div>
-     </div>
-       <div id="battery-rating" class="rating-category">
-     <strong>Battery:</strong>
-     <div class="rating" id="battery-rating-stars"></div>
-       </div>
-     </div>
-     
-     <p id="product-description"></p>
-     <p id="product-price"></p>
-     <button onclick="goBackToProducts()">Back to Products</button>
-     <button onclick="showRatingForm()">Rate Now</button>
-     
-     
-     <div id="feedback-section">
-     <h2>Customer Feedback</h2>
-     <div class="feedback-list" id="feedback-list"></div>
-     </div>
-          
+<!-- Product Details Page -->
+<div id="product-details-page" class="page">
+  <h1 id="product-title"></h1>
+  <img id="product-image" src="" alt="" style="width: 300px; height: auto;" class="product-image">
+  <div id="product-ratings">
+    <div id="price-rating" class="rating-category">
+      <strong>Price:</strong>
+      <div class="rating" id="price-rating-stars"></div>
+    </div>
+    <div id="camera-rating" class="rating-category">
+      <strong>Camera:</strong>
+      <div class="rating" id="camera-rating-stars"></div>
+    </div>
+    <div id="performance-rating" class="rating-category">
+      <strong>Performance:</strong>
+      <div class="rating" id="performance-rating-stars"></div>
+    </div>
+  </div>
+  <p id="product-description"></p>
+  <p id="product-price"></p>
+  <button onclick="goBackToProducts()">Back to Products</button>
+  <button onclick="showRatingForm()">Rate Now</button>
+
+  <!-- Customer Feedback Section -->
+  <div id="product-feedback"></div>
+</div>
+
+<!-- Rating Form Page -->
+<div id="rating-form-page" class="page" style="display: ;">
+  <h1>Rate the Product</h1>
+  <form id="rating-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
     
-   </div>
+    <label for="comments">Comments:</label><br>
+    <textarea id="comments" name="comments" required></textarea><br><br>
 
+    <label for="quality-rating">Quality:</label>
+    <input type="number" id="quality-rating" name="quality-rating" min="1" max="5" required><br><br>
 
-   <!-- Rating Form Page -->
-   <div id="rating-form-page" class="page" style="display: ;">
-   
-   <h1>Rate the Product</h1>
-   <form id="rating-form">
-   <!-- Add input fields for name, email, phone, etc. -->
-   <label for="name">Name:</label>
-   <input type="text" id="name" name="name"><br><br>
-   
-   <label for="email">Email:</label>
-   <input type="email" id="email" name="email"><br><br>
-   
-   <!-- Add more input fields as needed -->
-   
-   <!-- Add a file input for uploading photos -->
-   <label for="user-photo">Your Photo:</label>
-   <input type="file" id="user-photo" name="user-photo"><br><br>
-   
-   <label for="product-photo">Product Photo:</label>
-   <input type="file" id="product-photo" name="product-photo"><br><br>
-   
-   <!-- Add input fields for comments and ratings -->
-   <label for="comments">Comments:</label><br>
-   <textarea id="comments" name="comments"></textarea><br><br>
-   
-   <label for="quality-rating">Quality:</label>
-   <input type="number" id="quality-rating" name="quality-rating" min="1" max="5"><br><br>
-   
-   <label for="performance-rating">Performance:</label>
-   <input type="number" id="performance-rating" name="performance-rating" min="1" max="5"><br><br>
-   
-   <label for="camera-rating">Camera:</label>
-   <input type="number" id="camera-rating" name="camera-rating" min="1" max="5"><br><br>
+    <label for="performance-rating">Performance:</label>
+    <input type="number" id="performance-rating" name="performance-rating" min="1" max="5" required><br><br>
 
-     <label for="battery-rating">Battery:</label>
-   <input type="number" id="battery-rating" name="battery-rating" min="1" max="5"><br><br>
-   
-   <!-- Add a file input for uploading a video -->
-   <label for="user-video">Upload Video:</label>
-   <input type="file" id="user-video" name="user-video"><br><br>
-   
-   <!-- Add a submit button -->
-   <button type="submit">Submit</button>
-   </form>
-   
-   
-   <button onclick="goBackToProduct()">Back to Product</button>
-   </div>
+    <label for="camera-rating">Camera:</label>
+    <input type="number" id="camera-rating" name="camera-rating" min="1" max="5" required><br><br>
 
+    <label for="battery-rating">Battery:</label>
+    <input type="number" id="battery-rating" name="battery-rating" min="1" max="5" required><br><br>
+
+    
+    <button type="submit">Submit</button>
+  </form>
+  <button onclick="goBackToProduct()">Back to Product</button>
+</div>
 
  
   
@@ -804,98 +783,98 @@ button:hover {
   ],
   // Add more categories if needed
   Apple: [
-  { id: 1, title: 'iPhone 13 Pro Max', description: 'The iPhone 13 Pro Max is a flagship smartphone, featuring a stunning 6.7-inch Super Retina XDR display, A15 Bionic chip, and a triple-camera system with advanced computational photography capabilities. With 5G connectivity and all-day battery life, it offers the ultimate iPhone experience.', price: '$1,099',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'iphone-13-pro-max-silver-select.png' },
-  { id: 2, title: 'iPhone 13 Pro', description: 'The iPhone 13 Pro offers pro-level performance and features in a compact form factor. With a 6.1-inch Super Retina XDR display, A15 Bionic chip, and a triple-camera system with ProRAW and ProRes capabilities, this smartphone is perfect for creative professionals and enthusiasts.', price: '$999',ratings: { price: 4, camera: 5, performance: 3, battery: 4}, image: '13-Pro-Sierra-Blue-2.png' },
-  { id: 3, title: 'iPhone 13', description: 'The iPhone 13 combines performance and style in a sleek package. Featuring a 6.1-inch Super Retina XDR display, A15 Bionic chip, and advanced dual-camera system with Night mode, this smartphone delivers impressive performance and photography capabilities.', price: '$999',ratings: { price: 4, camera: 5, performance: 3, battery: 4 }, image: 'apple-iphone-13-128g-mindnigt-_a_-1.jpg' },
-  { id: 4, title: 'iPhone 13 mini', description: 'The iPhone 13 mini offers compact size without compromising on features. With a 5.4-inch Super Retina XDR display, A15 Bionic chip, and dual-camera system with Night mode, this smartphone is perfect for users who prefer a smaller form factor', price: '$699',ratings: { price: 4, camera: 5, performance: 3, battery: 4}, image: 'iphone-13-mini-blauw_2-0_600x600_BGresize_16777215-tj.png' },
-  { id: 5, title: 'iPhone 12 Pro Max', description: 'The iPhone 12 Pro Max features a large 6.7-inch Super Retina XDR display, A14 Bionic chip, and a triple-camera system with LiDAR scanner. With 5G connectivity and MagSafe technology, it offers pro-level performance and versatility.', price: '$1,099',ratings: { price: 4, camera: 5, performance: 3, battery: 4}, image: '63cff065d21ed163480f68c3-apple-iphone-12-pro-max-128gb-gold.jpg' },
-  { id: 6, title: 'iPhone 12 Pro', description: 'The iPhone 12 Pro combines premium design with advanced features. With a 6.1-inch Super Retina XDR display, A14 Bionic chip, and a triple-camera system with LiDAR scanner, this smartphone is perfect for users who demand the best.', price: '$999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'iphone-12-pro-blue.jpg' },
-  { id: 7, title: 'iPhone 12', description: 'The iPhone 12 features a sleek design and powerful performance. With a 6.1-inch Super Retina XDR display, A14 Bionic chip, and dual-camera system with Night mode, this smartphone delivers impressive performance and photography capabilities', price: '$799',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '12-mini-purple-1.webp' },
-  { id: 8, title: 'iPhone SE (2020)', description: 'The iPhone SE (2020) combines affordability with performance. With a 4.7-inch Retina HD display, A13 Bionic chip, and advanced camera system, this smartphone offers great value for money.', price: '$399',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Apple_new-iphone-se-white_04152020_big.jpg.large.jpg' },
-  { id: 9, title: 'iPhone 11', description: 'The iPhone 11 features a Liquid Retina HD display, A13 Bionic chip, and dual-camera system with Night mode. With all-day battery life and advanced camera capabilities, it offers a great user experience at a competitive price.', price: '$499',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'iphone-11-purple.jpg' },
-  { id: 10, title: 'iPhone XR', description: 'The iPhone XR features a Liquid Retina display, A12 Bionic chip, and advanced camera system with Portrait mode. With Face ID and all-day battery life, it offers a premium iPhone experience at an affordable price.', price: '$499',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '51q8XIapLOL.jpg' },
+  { id: 1.1, title: 'iPhone 13 Pro Max', description: 'The iPhone 13 Pro Max is a flagship smartphone, featuring a stunning 6.7-inch Super Retina XDR display, A15 Bionic chip, and a triple-camera system with advanced computational photography capabilities. With 5G connectivity and all-day battery life, it offers the ultimate iPhone experience.', price: '$1,099',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'iphone-13-pro-max-silver-select.png' },
+  { id: 2.1, title: 'iPhone 13 Pro', description: 'The iPhone 13 Pro offers pro-level performance and features in a compact form factor. With a 6.1-inch Super Retina XDR display, A15 Bionic chip, and a triple-camera system with ProRAW and ProRes capabilities, this smartphone is perfect for creative professionals and enthusiasts.', price: '$999',ratings: { price: 4, camera: 5, performance: 3, battery: 4}, image: '13-Pro-Sierra-Blue-2.png' },
+  { id: 3.1, title: 'iPhone 13', description: 'The iPhone 13 combines performance and style in a sleek package. Featuring a 6.1-inch Super Retina XDR display, A15 Bionic chip, and advanced dual-camera system with Night mode, this smartphone delivers impressive performance and photography capabilities.', price: '$999',ratings: { price: 4, camera: 5, performance: 3, battery: 4 }, image: 'apple-iphone-13-128g-mindnigt-_a_-1.jpg' },
+  { id: 4.1, title: 'iPhone 13 mini', description: 'The iPhone 13 mini offers compact size without compromising on features. With a 5.4-inch Super Retina XDR display, A15 Bionic chip, and dual-camera system with Night mode, this smartphone is perfect for users who prefer a smaller form factor', price: '$699',ratings: { price: 4, camera: 5, performance: 3, battery: 4}, image: 'iphone-13-mini-blauw_2-0_600x600_BGresize_16777215-tj.png' },
+  { id: 5.1, title: 'iPhone 12 Pro Max', description: 'The iPhone 12 Pro Max features a large 6.7-inch Super Retina XDR display, A14 Bionic chip, and a triple-camera system with LiDAR scanner. With 5G connectivity and MagSafe technology, it offers pro-level performance and versatility.', price: '$1,099',ratings: { price: 4, camera: 5, performance: 3, battery: 4}, image: '63cff065d21ed163480f68c3-apple-iphone-12-pro-max-128gb-gold.jpg' },
+  { id: 6.1, title: 'iPhone 12 Pro', description: 'The iPhone 12 Pro combines premium design with advanced features. With a 6.1-inch Super Retina XDR display, A14 Bionic chip, and a triple-camera system with LiDAR scanner, this smartphone is perfect for users who demand the best.', price: '$999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'iphone-12-pro-blue.jpg' },
+  { id: 7.1, title: 'iPhone 12', description: 'The iPhone 12 features a sleek design and powerful performance. With a 6.1-inch Super Retina XDR display, A14 Bionic chip, and dual-camera system with Night mode, this smartphone delivers impressive performance and photography capabilities', price: '$799',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '12-mini-purple-1.webp' },
+  { id: 8.1, title: 'iPhone SE (2020)', description: 'The iPhone SE (2020) combines affordability with performance. With a 4.7-inch Retina HD display, A13 Bionic chip, and advanced camera system, this smartphone offers great value for money.', price: '$399',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Apple_new-iphone-se-white_04152020_big.jpg.large.jpg' },
+  { id: 9.1, title: 'iPhone 11', description: 'The iPhone 11 features a Liquid Retina HD display, A13 Bionic chip, and dual-camera system with Night mode. With all-day battery life and advanced camera capabilities, it offers a great user experience at a competitive price.', price: '$499',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'iphone-11-purple.jpg' },
+  { id: 10.1, title: 'iPhone XR', description: 'The iPhone XR features a Liquid Retina display, A12 Bionic chip, and advanced camera system with Portrait mode. With Face ID and all-day battery life, it offers a premium iPhone experience at an affordable price.', price: '$499',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '51q8XIapLOL.jpg' },
        
   ],
   
   OnePlus: [
-  { id: 1, title: 'OnePlus 9 Pro', description: 'The OnePlus 9 Pro features a stunning 6.7-inch Fluid AMOLED display, Snapdragon 888 chipset, Hasselblad quad-camera setup, and Warp Charge 65T', price: '$969',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Morning mist-gallery.png' },
-  { id: 2, title: 'OnePlus 9', description: 'The OnePlus 9 boasts a 6.55-inch Fluid AMOLED display, Snapdragon 888 chipset, Hasselblad triple-camera system, and Warp Charge 65.', price: '$729',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '612dMOJRooL.jpg' },
-  { id: 3, title: 'OnePlus 8 Pro', description: 'With a 6.78-inch Fluid AMOLED display, Snapdragon 865 chipset, quad-camera setup, and Warp Charge 30T, the OnePlus 8 Pro delivers flagship performance', price: '$899',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '71lMjeUEzsL._AC_UF1000,1000_QL80_.jpg' },
-  { id: 4, title: 'OnePlus 8T', description: 'The OnePlus 8T features a 6.55-inch Fluid AMOLED display, Snapdragon 865 chipset, quad-camera system, and Warp Charge 65.', price: '$749',ratings: { price: 4, camera: 5, performance: 3, battery: 4  }, image: 'OnePlus-8T-featured-image-1.jpg' },
-  { id: 5, title: 'OnePlus Nord 2', description: 'The OnePlus Nord 2 offers a 6.43-inch Fluid AMOLED display, MediaTek Dimensity 1200 AI chipset, triple-camera setup, and Warp Charge 65.', price: '$399',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '71SWmrot-rL._AC_UF1000,1000_QL80_.jpg' },
-  { id: 6, title: 'OnePlus 8', description: 'Featuring a 6.55-inch Fluid AMOLED display, Snapdragon 865 chipset, triple-camera system, and Warp Charge 30T, the OnePlus 8 is a flagship contender.', price: '$699',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'fa376cb7-deee-484f-8236-74c360f34691_416x416.jpg' },
-  { id: 7, title: 'OnePlus 7T Pro', description: 'The OnePlus 7T Pro boasts a stunning 6.67-inch Fluid AMOLED display, Snapdragon 855+ chipset, triple-camera setup, and Warp Charge 30T.', price: '$699',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'kv-m.webp' },
-  { id: 8, title: 'OnePlus 7 Pro', description: 'With a 6.67-inch Fluid AMOLED display, Snapdragon 855 chipset, pop-up selfie camera, and Warp Charge 30, the OnePlus 7 Pro offers flagship features.', price: '$699',ratings: { price: 4, camera: 5, performance: 3, battery: 4  }, image: 'Refurbished-OnePlus-7-Pro-Specifications.jpg' },
-  { id: 9, title: 'OnePlus Nord', description: 'The OnePlus Nord features a 6.44-inch Fluid AMOLED display, Snapdragon 765G chipset, quad-camera setup, and Warp Charge 30T.', price: '$399',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '61+Q6Rh3OQL._AC_UF1000,1000_QL80_.jpg' },
-  { id: 10, title: 'OnePlus 7T', description: 'The OnePlus 7T comes with a 6.55-inch Fluid AMOLED display, Snapdragon 855+ chipset, triple-camera system, and Warp Charge 30T.', price: '$499',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'oneplus-7t-frosted-silver-8gb-ram-128gb-storage-preowned-triveni-world-1_1024x.jpg' },
+  { id: 1.2, title: 'OnePlus 9 Pro', description: 'The OnePlus 9 Pro features a stunning 6.7-inch Fluid AMOLED display, Snapdragon 888 chipset, Hasselblad quad-camera setup, and Warp Charge 65T', price: '$969',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Morning mist-gallery.png' },
+  { id: 2.2, title: 'OnePlus 9', description: 'The OnePlus 9 boasts a 6.55-inch Fluid AMOLED display, Snapdragon 888 chipset, Hasselblad triple-camera system, and Warp Charge 65.', price: '$729',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '612dMOJRooL.jpg' },
+  { id: 3.2, title: 'OnePlus 8 Pro', description: 'With a 6.78-inch Fluid AMOLED display, Snapdragon 865 chipset, quad-camera setup, and Warp Charge 30T, the OnePlus 8 Pro delivers flagship performance', price: '$899',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '71lMjeUEzsL._AC_UF1000,1000_QL80_.jpg' },
+  { id: 4.2, title: 'OnePlus 8T', description: 'The OnePlus 8T features a 6.55-inch Fluid AMOLED display, Snapdragon 865 chipset, quad-camera system, and Warp Charge 65.', price: '$749',ratings: { price: 4, camera: 5, performance: 3, battery: 4  }, image: 'OnePlus-8T-featured-image-1.jpg' },
+  { id: 5.2, title: 'OnePlus Nord 2', description: 'The OnePlus Nord 2 offers a 6.43-inch Fluid AMOLED display, MediaTek Dimensity 1200 AI chipset, triple-camera setup, and Warp Charge 65.', price: '$399',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '71SWmrot-rL._AC_UF1000,1000_QL80_.jpg' },
+  { id: 6.2, title: 'OnePlus 8', description: 'Featuring a 6.55-inch Fluid AMOLED display, Snapdragon 865 chipset, triple-camera system, and Warp Charge 30T, the OnePlus 8 is a flagship contender.', price: '$699',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'fa376cb7-deee-484f-8236-74c360f34691_416x416.jpg' },
+  { id: 7.2, title: 'OnePlus 7T Pro', description: 'The OnePlus 7T Pro boasts a stunning 6.67-inch Fluid AMOLED display, Snapdragon 855+ chipset, triple-camera setup, and Warp Charge 30T.', price: '$699',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'kv-m.webp' },
+  { id: 8.2, title: 'OnePlus 7 Pro', description: 'With a 6.67-inch Fluid AMOLED display, Snapdragon 855 chipset, pop-up selfie camera, and Warp Charge 30, the OnePlus 7 Pro offers flagship features.', price: '$699',ratings: { price: 4, camera: 5, performance: 3, battery: 4  }, image: 'Refurbished-OnePlus-7-Pro-Specifications.jpg' },
+  { id: 9.2, title: 'OnePlus Nord', description: 'The OnePlus Nord features a 6.44-inch Fluid AMOLED display, Snapdragon 765G chipset, quad-camera setup, and Warp Charge 30T.', price: '$399',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '61+Q6Rh3OQL._AC_UF1000,1000_QL80_.jpg' },
+  { id: 10.2, title: 'OnePlus 7T', description: 'The OnePlus 7T comes with a 6.55-inch Fluid AMOLED display, Snapdragon 855+ chipset, triple-camera system, and Warp Charge 30T.', price: '$499',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'oneplus-7t-frosted-silver-8gb-ram-128gb-storage-preowned-triveni-world-1_1024x.jpg' },
   ],
   
   Realme: [
-  { id: 1, title: 'Realme Narzo 70x 5G', description: 'This affordable 5G phone features a 6.72-inch FHD+ AMOLED display with a 120Hz refresh rate, a MediaTek Dimensity 6100+ processor, 4GB RAM, 128GB storage, 50MP dual rear cameras, an 8MP front camera, and a 5000 mAh battery with 45W fast charging.', price: '₹11,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Realme-Narzo-70x-5G-db-709x800-1713942874.jpg' },
-  { id: 2, title: 'Realme Narzo 70 Pro 5G', description: 'A mid-range device with a 6.67-inch FHD+ OLED display at 120Hz, powered by MediaTek Dimensity 7050, 8GB RAM, 128/256GB storage, a 50MP triple rear camera setup, a 16MP front camera, and a 5000 mAh battery with 67W SUPERVOOC charging.', price: '₹19,999 (8GB/128GB), ₹21,999 (8GB/256GB) ',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'realme-narzo-70-pro-5g-8gb-ram-128gb-rom-glass-gold-smartphone-product-images-orvaxlq7pol-p608559706-0-202403221702.jpg' },
-  { id: 3, title: 'Realme 12 Plus 5G', description: 'Featuring a 6.67-inch AMOLED display with a 120Hz refresh rate, MediaTek Dimensity 7050 chipset, 8GB RAM, 256GB storage, a 50MP primary camera, 8MP ultra-wide camera, 2MP macro camera, a 16MP front camera, and a 5000 mAh battery with 67W fast charging.', price: '₹19,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '1706510758447623d48e411ec4caa8bab0ba962194150.png.webp' },
-  { id: 4, title: 'Realme 12 5G', description: 'This phone offers a 6.72-inch FHD+ display, MediaTek Dimensity 6100+ processor, 4GB RAM, 128GB storage, a 108MP dual rear camera, an 8MP front camera, and a 5000 mAh battery.', price: '₹16,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '1709641661600bedfc9a49e4f4801a1eaa2bbc74af91d.png.webp' },
-  { id: 5, title: 'Realme C65 5G', description: 'Equipped with a 6.67-inch HD+ IPS LCD display at 120Hz, MediaTek Dimensity 6300 processor, 4GB RAM, 64GB storage, 50MP dual rear cameras, an 8MP front camera, and a 5000 mAh battery.', price: '₹10,499',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'realme-c65-5g-6gb-ra.jpg' },
-  { id: 6, title: 'Realme GT Neo 6', description: 'Features a 6.7-inch FHD+ AMOLED display, Snapdragon 8s Gen 3 processor, up to 12GB RAM, 256GB storage, 50MP triple rear cameras, a 16MP front camera, and a 5000 mAh battery with 120W fast charging.', price: '₹29,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'realme_gt_neo_6_se_weibo_1712667857810.jpg' },
-  { id: 7, title: 'Realme P1 Pro 5G', description: 'Offers a 6.7-inch FHD+ OLED display, Snapdragon 6 Gen 1 processor, 8GB RAM, 128GB storage, 50MP dual rear cameras, a 16MP front camera, and a 5000 mAh battery.', price: '₹21,335',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '71-EjU0LMYL.jpg' },
-  { id: 8, title: 'Realme 12x', description: 'Comes with a 6.72-inch FHD+ IPS LCD display, MediaTek Dimensity 6100 Plus processor, 4GB RAM, 128GB storage, 50MP dual rear cameras, an 8MP front camera, and a 5000 mAh battery.', price: '₹12,990',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'realme-12x-5g-021225681-1x1.jpg' },
-  { id: 9, title: 'Realme Narzo 60 5G', description: 'Features a 6.43-inch FHD+ Super AMOLED display, MediaTek Dimensity 6020 processor, 8GB RAM, 128GB storage, 64MP dual rear cameras, a 16MP front camera, and a 5000 mAh battery.', price: '₹15,699',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Realmenarzo605G_MarsOrange8GB_128GB_2.jpg' },
-  { id: 10, title: 'Realme GT 6T', description: 'This high-end model includes a 6.7-inch FHD+ AMOLED display, Snapdragon 7+ Gen 3 chipset, up to 12GB RAM, 256GB storage, 50MP triple rear cameras, a 16MP front camera, and a 5000 mAh battery with 67W fast charging.', price: '₹31,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Realme-GT-6T-Confirmed-for-India-Launch-this-Month-Brings-Powerful-Specs.jpg' },
+  { id: 1.3, title: 'Realme Narzo 70x 5G', description: 'This affordable 5G phone features a 6.72-inch FHD+ AMOLED display with a 120Hz refresh rate, a MediaTek Dimensity 6100+ processor, 4GB RAM, 128GB storage, 50MP dual rear cameras, an 8MP front camera, and a 5000 mAh battery with 45W fast charging.', price: '₹11,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Realme-Narzo-70x-5G-db-709x800-1713942874.jpg' },
+  { id: 2.3, title: 'Realme Narzo 70 Pro 5G', description: 'A mid-range device with a 6.67-inch FHD+ OLED display at 120Hz, powered by MediaTek Dimensity 7050, 8GB RAM, 128/256GB storage, a 50MP triple rear camera setup, a 16MP front camera, and a 5000 mAh battery with 67W SUPERVOOC charging.', price: '₹19,999 (8GB/128GB), ₹21,999 (8GB/256GB) ',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'realme-narzo-70-pro-5g-8gb-ram-128gb-rom-glass-gold-smartphone-product-images-orvaxlq7pol-p608559706-0-202403221702.jpg' },
+  { id: 3.3, title: 'Realme 12 Plus 5G', description: 'Featuring a 6.67-inch AMOLED display with a 120Hz refresh rate, MediaTek Dimensity 7050 chipset, 8GB RAM, 256GB storage, a 50MP primary camera, 8MP ultra-wide camera, 2MP macro camera, a 16MP front camera, and a 5000 mAh battery with 67W fast charging.', price: '₹19,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '1706510758447623d48e411ec4caa8bab0ba962194150.png.webp' },
+  { id: 4.3, title: 'Realme 12 5G', description: 'This phone offers a 6.72-inch FHD+ display, MediaTek Dimensity 6100+ processor, 4GB RAM, 128GB storage, a 108MP dual rear camera, an 8MP front camera, and a 5000 mAh battery.', price: '₹16,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '1709641661600bedfc9a49e4f4801a1eaa2bbc74af91d.png.webp' },
+  { id: 5.3, title: 'Realme C65 5G', description: 'Equipped with a 6.67-inch HD+ IPS LCD display at 120Hz, MediaTek Dimensity 6300 processor, 4GB RAM, 64GB storage, 50MP dual rear cameras, an 8MP front camera, and a 5000 mAh battery.', price: '₹10,499',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'realme-c65-5g-6gb-ra.jpg' },
+  { id: 6.3, title: 'Realme GT Neo 6', description: 'Features a 6.7-inch FHD+ AMOLED display, Snapdragon 8s Gen 3 processor, up to 12GB RAM, 256GB storage, 50MP triple rear cameras, a 16MP front camera, and a 5000 mAh battery with 120W fast charging.', price: '₹29,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'realme_gt_neo_6_se_weibo_1712667857810.jpg' },
+  { id: 7.3, title: 'Realme P1 Pro 5G', description: 'Offers a 6.7-inch FHD+ OLED display, Snapdragon 6 Gen 1 processor, 8GB RAM, 128GB storage, 50MP dual rear cameras, a 16MP front camera, and a 5000 mAh battery.', price: '₹21,335',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '71-EjU0LMYL.jpg' },
+  { id: 8.3, title: 'Realme 12x', description: 'Comes with a 6.72-inch FHD+ IPS LCD display, MediaTek Dimensity 6100 Plus processor, 4GB RAM, 128GB storage, 50MP dual rear cameras, an 8MP front camera, and a 5000 mAh battery.', price: '₹12,990',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'realme-12x-5g-021225681-1x1.jpg' },
+  { id: 9.3, title: 'Realme Narzo 60 5G', description: 'Features a 6.43-inch FHD+ Super AMOLED display, MediaTek Dimensity 6020 processor, 8GB RAM, 128GB storage, 64MP dual rear cameras, a 16MP front camera, and a 5000 mAh battery.', price: '₹15,699',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Realmenarzo605G_MarsOrange8GB_128GB_2.jpg' },
+  { id: 10.3, title: 'Realme GT 6T', description: 'This high-end model includes a 6.7-inch FHD+ AMOLED display, Snapdragon 7+ Gen 3 chipset, up to 12GB RAM, 256GB storage, 50MP triple rear cameras, a 16MP front camera, and a 5000 mAh battery with 67W fast charging.', price: '₹31,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Realme-GT-6T-Confirmed-for-India-Launch-this-Month-Brings-Powerful-Specs.jpg' },
   ],
   
   Samsung: [
-  { id: 1, title: 'Samsung Galaxy S23 Ultra', description: 'The flagship model featuring a 6.8-inch Dynamic AMOLED display, Snapdragon 8 Gen 2 processor, up to 1TB storage, and a 200MP main camera', price: '$999.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Samsung-Galaxy-S23-Ultra-256GB-Unlocked-Cream-1-optimized.webp' },
-  { id: 2, title: 'Samsung Galaxy A55 5G', description: 'A mid-range phone with a 6.6-inch Super AMOLED display, 120Hz refresh rate, 50MP main camera, and 5000mAh battery.', price: '$449.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '71ZrPkGgcLL.jpg' },
-  { id: 3, title: 'Samsung Galaxy S23 FE', description: 'An affordable variant of the S23 series, featuring a 6.4-inch Dynamic AMOLED display, Exynos 2200 processor, and a 50MP main camera.', price: '$599.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '617l83eY1rL.jpg' },
-  {id: 4, title: 'Samsung Galaxy Z Fold 5', description: 'A premium foldable phone with a 7.6-inch Dynamic AMOLED main display, Snapdragon 8+ Gen 2 processor, and a versatile camera setup.', price: '$1799.99',ratings: { price: 4, camera: 5, performance: 3, battery: 4}, image: '275452_0_y1res8.png' },
-  {id: 5, title: 'Samsung Galaxy Z Flip 5', description: 'A compact foldable phone featuring a 6.7-inch Dynamic AMOLED display, Snapdragon 8+ Gen 2 processor, and improved durability.', price: '$999.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '61Tl1z+Hn0L._AC_UF1000,1000_QL80_.jpg' },
-  {id: 6, title: 'Samsung Galaxy A54', description: 'Another mid-range option with a 6.4-inch Super AMOLED display, Exynos 1380 processor, and a 50MP main camera.', price: '$349.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '6538053_sd.jpg' },
-  {id: 7, title: 'Samsung Galaxy S23 Plus', description: 'A larger variant of the S23 with a 6.6-inch Dynamic AMOLED display, Snapdragon 8 Gen 2 processor, and a triple-camera setup.', price: '$899.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'samsung-galaxy-s23-plus-paars-frontandback_600x600_BGresize_16777215-tj.png' },
-  {id: 8, title: 'Samsung Galaxy A34', description: 'A budget-friendly phone with a 6.5-inch AMOLED display, MediaTek Dimensity 1080 processor, and a 48MP main camera.', price: '$299.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'galaxy-a05s-samsung-db-620x800-1697434745.jpg' },
-  {id: 9, title: 'Samsung Galaxy M54', description: 'Targeting budget-conscious users with a 6.7-inch Super AMOLED display, Exynos 1380 processor, and a 108MP main camera.', price: '$379.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'galaxy-m54-5g-db-709x800-1679549391.jpg' },
-  {id: 10, title: 'Samsung Galaxy S24', description: 'Expected to be a new release with cutting-edge features, including the latest Snapdragon 8 Gen 3 processor, advanced camera technology, and an improved display.', price: '$1099.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '71r4P+34FuL._AC_UF1000,1000_QL80_.jpg' },
+  { id: 1.4, title: 'Samsung Galaxy S23 Ultra', description: 'The flagship model featuring a 6.8-inch Dynamic AMOLED display, Snapdragon 8 Gen 2 processor, up to 1TB storage, and a 200MP main camera', price: '$999.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'Samsung-Galaxy-S23-Ultra-256GB-Unlocked-Cream-1-optimized.webp' },
+  { id: 2.4, title: 'Samsung Galaxy A55 5G', description: 'A mid-range phone with a 6.6-inch Super AMOLED display, 120Hz refresh rate, 50MP main camera, and 5000mAh battery.', price: '$449.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '71ZrPkGgcLL.jpg' },
+  { id: 3.4, title: 'Samsung Galaxy S23 FE', description: 'An affordable variant of the S23 series, featuring a 6.4-inch Dynamic AMOLED display, Exynos 2200 processor, and a 50MP main camera.', price: '$599.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '617l83eY1rL.jpg' },
+  {id: 4.4, title: 'Samsung Galaxy Z Fold 5', description: 'A premium foldable phone with a 7.6-inch Dynamic AMOLED main display, Snapdragon 8+ Gen 2 processor, and a versatile camera setup.', price: '$1799.99',ratings: { price: 4, camera: 5, performance: 3, battery: 4}, image: '275452_0_y1res8.png' },
+  {id: 5.4, title: 'Samsung Galaxy Z Flip 5', description: 'A compact foldable phone featuring a 6.7-inch Dynamic AMOLED display, Snapdragon 8+ Gen 2 processor, and improved durability.', price: '$999.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '61Tl1z+Hn0L._AC_UF1000,1000_QL80_.jpg' },
+  {id: 6.4, title: 'Samsung Galaxy A54', description: 'Another mid-range option with a 6.4-inch Super AMOLED display, Exynos 1380 processor, and a 50MP main camera.', price: '$349.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '6538053_sd.jpg' },
+  {id: 7.4, title: 'Samsung Galaxy S23 Plus', description: 'A larger variant of the S23 with a 6.6-inch Dynamic AMOLED display, Snapdragon 8 Gen 2 processor, and a triple-camera setup.', price: '$899.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'samsung-galaxy-s23-plus-paars-frontandback_600x600_BGresize_16777215-tj.png' },
+  {id: 8.4, title: 'Samsung Galaxy A34', description: 'A budget-friendly phone with a 6.5-inch AMOLED display, MediaTek Dimensity 1080 processor, and a 48MP main camera.', price: '$299.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'galaxy-a05s-samsung-db-620x800-1697434745.jpg' },
+  {id: 9.4, title: 'Samsung Galaxy M54', description: 'Targeting budget-conscious users with a 6.7-inch Super AMOLED display, Exynos 1380 processor, and a 108MP main camera.', price: '$379.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'galaxy-m54-5g-db-709x800-1679549391.jpg' },
+  {id: 10.4, title: 'Samsung Galaxy S24', description: 'Expected to be a new release with cutting-edge features, including the latest Snapdragon 8 Gen 3 processor, advanced camera technology, and an improved display.', price: '$1099.99',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '71r4P+34FuL._AC_UF1000,1000_QL80_.jpg' },
   
   ],
   
   Oppo: [
-  { id: 1, title: 'Oppo Find X7 Ultra', description: 'The latest flagship from Oppo, featuring the Snapdragon 8 Gen 3 chipset, exceptional camera performance, and top-tier display quality.', price: '$999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '659fbcf0069f5b0914575f6a-oppo-find-x7-ultra-16gb-512gb-snapdragon.jpg' },
-  { id: 2, title: 'Oppo Find X6 Pro', description: ' A powerful alternative to the X7 Ultra, offering excellent performance, a stunning display, and superb camera capabilities.', price: '$799',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '65bcf8dfdb6920413040b06c-oppo-find-x6-pro-5g-16gb-512gb.jpg' },
-  { id: 3, title: 'Oppo Find N3', description: 'The best foldable phone with a near-crease-free display, flagship camera, and excellent battery life.', price:'$1,479',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'find-n3-440_440-gold.png.thumb.webp' },
-  { id: 4, title: 'Oppo Find N3 Flip', description: 'The top compact flip phone with a flagship MediaTek Dimensity 9200 5G chipset and a versatile camera setup.', price: '$999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'OPPO-Find-N3-Flip-1024x736.jpg' },
-  { id: 5, title: 'Oppo Reno10 Pro Plus 5G', description: 'Features a Snapdragon 8 Gen 1+ chipset, a 6.74-inch AMOLED display with a 120Hz refresh rate, and a robust camera setup including a 64MP periscope telephoto lens.', price: '$680',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'Oppo-Reno-10-Pro-Plus-5G-DB-709x800-1685018454.jpg' },
-  { id: 6, title: 'Oppo Reno10 Pro 5G', description: 'Equipped with a Snapdragon 778G chipset, a 6.7-inch AMOLED display, and a triple camera setup including a 50MP main lens.', price: '$484',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'oppo-reno-10-pro-616x800-1690959537.jpg' },
-  { id: 7, title: 'Oppo Reno10 5G', description: 'A mid-range phone with a MediaTek Dimensity 7050 chipset, a 6.7-inch AMOLED display, and a triple camera setup including a 64MP main lens.', price: '$400',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '41eHZdSnvPL.jpg' },
-  { id: 8, title: 'Oppo Find X5', description: 'Features a Snapdragon 888 chipset, a 6.55-inch AMOLED display, and a triple camera setup with a 50MP main sensor.', price: '$669',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '35775.jpg' },
-  { id: 9, title: 'Oppo Reno 8 Pro', description: 'Comes with a MediaTek Dimensity 8100-Max chipset, a 6.7-inch AMOLED display, and a triple camera setup with a 50MP main sensor.', price: '$600',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '64c9cfe73d5515197f14677b-oppo-reno-8-pro-dual-sim-256gb-rom-8gb.jpg' },
-  { id: 10, title:'Oppo F23 5G', description: 'A budget-friendly option with a Snapdragon 695 chipset, a 6.72-inch IPS LCD display, and a 64MP main camera.', price: '$305',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '81t-iyg0JfL._AC_UF1000,1000_QL80_.jpg' },
+  { id: 1.5, title: 'Oppo Find X7 Ultra', description: 'The latest flagship from Oppo, featuring the Snapdragon 8 Gen 3 chipset, exceptional camera performance, and top-tier display quality.', price: '$999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '659fbcf0069f5b0914575f6a-oppo-find-x7-ultra-16gb-512gb-snapdragon.jpg' },
+  { id: 2.5, title: 'Oppo Find X6 Pro', description: ' A powerful alternative to the X7 Ultra, offering excellent performance, a stunning display, and superb camera capabilities.', price: '$799',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '65bcf8dfdb6920413040b06c-oppo-find-x6-pro-5g-16gb-512gb.jpg' },
+  { id: 3.5, title: 'Oppo Find N3', description: 'The best foldable phone with a near-crease-free display, flagship camera, and excellent battery life.', price:'$1,479',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'find-n3-440_440-gold.png.thumb.webp' },
+  { id: 4.5, title: 'Oppo Find N3 Flip', description: 'The top compact flip phone with a flagship MediaTek Dimensity 9200 5G chipset and a versatile camera setup.', price: '$999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'OPPO-Find-N3-Flip-1024x736.jpg' },
+  { id: 5.5, title: 'Oppo Reno10 Pro Plus 5G', description: 'Features a Snapdragon 8 Gen 1+ chipset, a 6.74-inch AMOLED display with a 120Hz refresh rate, and a robust camera setup including a 64MP periscope telephoto lens.', price: '$680',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'Oppo-Reno-10-Pro-Plus-5G-DB-709x800-1685018454.jpg' },
+  { id: 6.5, title: 'Oppo Reno10 Pro 5G', description: 'Equipped with a Snapdragon 778G chipset, a 6.7-inch AMOLED display, and a triple camera setup including a 50MP main lens.', price: '$484',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'oppo-reno-10-pro-616x800-1690959537.jpg' },
+  { id: 7.5, title: 'Oppo Reno10 5G', description: 'A mid-range phone with a MediaTek Dimensity 7050 chipset, a 6.7-inch AMOLED display, and a triple camera setup including a 64MP main lens.', price: '$400',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '41eHZdSnvPL.jpg' },
+  { id: 8.5, title: 'Oppo Find X5', description: 'Features a Snapdragon 888 chipset, a 6.55-inch AMOLED display, and a triple camera setup with a 50MP main sensor.', price: '$669',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '35775.jpg' },
+  { id: 9.5, title: 'Oppo Reno 8 Pro', description: 'Comes with a MediaTek Dimensity 8100-Max chipset, a 6.7-inch AMOLED display, and a triple camera setup with a 50MP main sensor.', price: '$600',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '64c9cfe73d5515197f14677b-oppo-reno-8-pro-dual-sim-256gb-rom-8gb.jpg' },
+  { id: 10.5, title:'Oppo F23 5G', description: 'A budget-friendly option with a Snapdragon 695 chipset, a 6.72-inch IPS LCD display, and a 64MP main camera.', price: '$305',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '81t-iyg0JfL._AC_UF1000,1000_QL80_.jpg' },
  
   ],
   
   Vivo: [
-  { id: 1, title: 'Vivo X100 Pro', description: 'Features a 6.78-inch AMOLED display with a 120Hz refresh rate, powered by the MediaTek Dimensity 9300 chipset. It has a triple 50MP rear camera setup and a 32MP front camera, 16GB RAM, and 512GB storage.', price: '₹89,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'x100-white-1.jpg' },
-  { id: 2, title: 'Vivo X100', description: 'Similar to the X100 Pro but with options for 12GB or 16GB RAM and 256GB or 512GB storage. It also features a 6.78-inch AMOLED display and triple rear cameras.', price: '₹63,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'vivo-x100-db-709x800-1699936866.jpg' },
-  { id: 3, title: 'Vivo V29 Pro', description: 'Comes with a 6.78-inch AMOLED display, Snapdragon 778G processor, up to 12GB RAM, and a triple rear camera setup with a 50MP main sensor.', price: '₹39,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'blue2 (3).jpg' },
-  { id: 4, title: 'Vivo V29 5G', description: 'Features a 6.78-inch AMOLED display, Snapdragon 778G, and up to 12GB RAM. It has a 50MP main camera and supports 5G.', price: '₹32,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'fff1712895cf005af41bea955ac6972a.png' },
-  { id: 5, title: 'Vivo Y200e 5G', description: 'Equipped with a 6.67-inch AMOLED display, Snapdragon 4 Gen 2 processor, 50MP dual rear camera, and 5000mAh battery.', price: '₹19,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '99077445ce22019ccd5f7f6f66821d7e.png' },
-  { id: 6, title: 'Vivo iQOO Neo9 Pro 5G', description: 'Sports a 6.78-inch display, Mediatek Dimensity 9300 chipset, up to 16GB RAM, and a 50MP primary camera.', price: '₹34,900',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'iqoo-neo-9-pro-db-648x800-1703740228.jpg' },
-  { id: 7, title: 'Vivo V30 Lite 5G', description: 'Has a 6.67-inch display, Snapdragon 695 processor, 64MP rear camera, and 256GB storage.', price: '₹44,100',ratings: { price: 4, camera: 5, performance: 3  , battery: 4 }, image: '61hqpn7IanL._AC_UF1000,1000_QL80_.jpg' },
-  { id: 8, title: 'Vivo X Fold3', description: ' A premium foldable phone with advanced display technology and powerful internals.', price: '$1,142',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'vivo-x-fold-3.jpg' },
-  { id: 9, title: 'Vivo X Flip', description: 'A stylish flip phone with a high-end display and camera setup.', price: '$809',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'vivo-x-flip.jpg' },
-  { id: 10, title: 'Vivo V29 Lite', description: 'An affordable option with a 6.78-inch AMOLED display, good battery life, and decent performance.', price: '$227',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '5c0388f08150caca6ff0d3b3dfe645d6.png' },
+  { id: 1.6, title: 'Vivo X100 Pro', description: 'Features a 6.78-inch AMOLED display with a 120Hz refresh rate, powered by the MediaTek Dimensity 9300 chipset. It has a triple 50MP rear camera setup and a 32MP front camera, 16GB RAM, and 512GB storage.', price: '₹89,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'x100-white-1.jpg' },
+  { id: 2.6, title: 'Vivo X100', description: 'Similar to the X100 Pro but with options for 12GB or 16GB RAM and 256GB or 512GB storage. It also features a 6.78-inch AMOLED display and triple rear cameras.', price: '₹63,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'vivo-x100-db-709x800-1699936866.jpg' },
+  { id: 3.6, title: 'Vivo V29 Pro', description: 'Comes with a 6.78-inch AMOLED display, Snapdragon 778G processor, up to 12GB RAM, and a triple rear camera setup with a 50MP main sensor.', price: '₹39,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'blue2 (3).jpg' },
+  { id: 4.6, title: 'Vivo V29 5G', description: 'Features a 6.78-inch AMOLED display, Snapdragon 778G, and up to 12GB RAM. It has a 50MP main camera and supports 5G.', price: '₹32,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'fff1712895cf005af41bea955ac6972a.png' },
+  { id: 5.6, title: 'Vivo Y200e 5G', description: 'Equipped with a 6.67-inch AMOLED display, Snapdragon 4 Gen 2 processor, 50MP dual rear camera, and 5000mAh battery.', price: '₹19,999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '99077445ce22019ccd5f7f6f66821d7e.png' },
+  { id: 6.6, title: 'Vivo iQOO Neo9 Pro 5G', description: 'Sports a 6.78-inch display, Mediatek Dimensity 9300 chipset, up to 16GB RAM, and a 50MP primary camera.', price: '₹34,900',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'iqoo-neo-9-pro-db-648x800-1703740228.jpg' },
+  { id: 7.6, title: 'Vivo V30 Lite 5G', description: 'Has a 6.67-inch display, Snapdragon 695 processor, 64MP rear camera, and 256GB storage.', price: '₹44,100',ratings: { price: 4, camera: 5, performance: 3  , battery: 4 }, image: '61hqpn7IanL._AC_UF1000,1000_QL80_.jpg' },
+  { id: 8.6, title: 'Vivo X Fold3', description: ' A premium foldable phone with advanced display technology and powerful internals.', price: '$1,142',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'vivo-x-fold-3.jpg' },
+  { id: 9.6, title: 'Vivo X Flip', description: 'A stylish flip phone with a high-end display and camera setup.', price: '$809',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'vivo-x-flip.jpg' },
+  { id: 10.6, title: 'Vivo V29 Lite', description: 'An affordable option with a 6.78-inch AMOLED display, good battery life, and decent performance.', price: '$227',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '5c0388f08150caca6ff0d3b3dfe645d6.png' },
   
   ],
   
   Motorola: [
-  { id: 1, title: 'Motorola Edge 40 Pro', description: 'This flagship phone features a Snapdragon 8 Gen 2 chipset, a 6.67-inch OLED display with a 165Hz refresh rate, and a triple camera setup with a 50MP main sensor. It supports 125W fast charging and has a sleek design.', price: '$1,059',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '71hVkWzI8gL._AC_UF894,1000_QL80_.jpg' },
-  { id: 2, title: 'Motorola Razr 40 Ultra', description: 'A foldable phone with a 6.9-inch main pOLED display and a 3.6-inch external AMOLED display. It uses a Snapdragon 8 Plus Gen 1 processor and has a dual camera system (12MP and 13MP ultrawide).', price: '£849 (approx. $1,070)',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '617WN7I3E4L.jpg' },
-  { id: 3, title: 'Motorola Edge 30 Ultra', description: 'This phone features a 200MP main camera, Snapdragon 8 Plus Gen 1 processor, and a 144Hz OLED display. It also supports 125W fast charging and 50W wireless charging.', price: '$1,259',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'edge-30-Ultra_White_2.png' },
-  { id: 4, title: 'Motorola Edge 30 Fusion', description: 'Known for its powerful Snapdragon 888+ chipset, 50MP camera, and 6.55-inch OLED display with a 144Hz refresh rate. It offers fast 68W wired charging.', price: '$700',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'motorola-edge-30-fusion-pdp-ecom-render-16-fleece-gold-48keh96c.png' },
-  { id: 5, title: 'Motorola Moto G Stylus 5G ', description: 'A mid-range phone with a built-in stylus, 6.8-inch display, Snapdragon 6 Gen 1 processor, and a 50MP main camera. It’s designed for productivity and creativity.', price: '$400',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '645e368b0dfd2f00212ab6f4-motorola-moto-g-stylus-5g-at-t.jpg' },
-  { id: 6, title: 'Motorola Moto G Power 5G', description: 'Features a 6.5-inch display, Dimensity 700 chipset, and a large 5000mAh battery for extended battery life. It has a triple camera system with a 50MP main sensor.', price: '$249',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '61QVWPfp1pL.jpg' },
-  { id: 7, title: 'Motorola Edge 30 Neo', description: 'A compact phone with a 6.28-inch OLED display ,Snapdragon 695 processor, and a dual-camera system. It is aimed at users who prefer a smaller device.', price: '$399',ratings: { price: 4, camera: 5, performance: 3, battery: 4  }, image: 'thumb_675079_default_big-500x500.png' },
-  { id: 8, title: 'Motorola Moto G13', description: 'An affordable option with a 6.5-inch HD+ display, MediaTek Helio G85 processor, and a 50MP main camera. It offers solid battery life and features for its price.', price: '£97 (approx. $122) ',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '718V06K+3UL.jpg' },
-  { id: 9, title: 'Motorola Defy ', description: 'A rugged phone designed for durability with water and dust resistance, a 6.5-inch display, Snapdragon 480 Plus processor, and a 48MP main camera.', price: '$299',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'MDEFYDBBEUNKN05_1_Supersize.jpg' },
-  { id: 10, title: 'Motorola Razr 2022', description: 'Another foldable phone with a 6.7-inch OLED main display and a Snapdragon 8 Plus Gen 1 chipset. It features a 50MP main camera and offers a unique flip design.', price: '$999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '93598335.jpg' },
+  { id: 1.7, title: 'Motorola Edge 40 Pro', description: 'This flagship phone features a Snapdragon 8 Gen 2 chipset, a 6.67-inch OLED display with a 165Hz refresh rate, and a triple camera setup with a 50MP main sensor. It supports 125W fast charging and has a sleek design.', price: '$1,059',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: '71hVkWzI8gL._AC_UF894,1000_QL80_.jpg' },
+  { id: 2.7, title: 'Motorola Razr 40 Ultra', description: 'A foldable phone with a 6.9-inch main pOLED display and a 3.6-inch external AMOLED display. It uses a Snapdragon 8 Plus Gen 1 processor and has a dual camera system (12MP and 13MP ultrawide).', price: '£849 (approx. $1,070)',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '617WN7I3E4L.jpg' },
+  { id: 3.7, title: 'Motorola Edge 30 Ultra', description: 'This phone features a 200MP main camera, Snapdragon 8 Plus Gen 1 processor, and a 144Hz OLED display. It also supports 125W fast charging and 50W wireless charging.', price: '$1,259',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'edge-30-Ultra_White_2.png' },
+  { id: 4.7, title: 'Motorola Edge 30 Fusion', description: 'Known for its powerful Snapdragon 888+ chipset, 50MP camera, and 6.55-inch OLED display with a 144Hz refresh rate. It offers fast 68W wired charging.', price: '$700',ratings: { price: 4, camera: 5, performance: 3 , battery: 4}, image: 'motorola-edge-30-fusion-pdp-ecom-render-16-fleece-gold-48keh96c.png' },
+  { id: 5.7, title: 'Motorola Moto G Stylus 5G ', description: 'A mid-range phone with a built-in stylus, 6.8-inch display, Snapdragon 6 Gen 1 processor, and a 50MP main camera. It’s designed for productivity and creativity.', price: '$400',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '645e368b0dfd2f00212ab6f4-motorola-moto-g-stylus-5g-at-t.jpg' },
+  { id: 6.7, title: 'Motorola Moto G Power 5G', description: 'Features a 6.5-inch display, Dimensity 700 chipset, and a large 5000mAh battery for extended battery life. It has a triple camera system with a 50MP main sensor.', price: '$249',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '61QVWPfp1pL.jpg' },
+  { id: 7.7, title: 'Motorola Edge 30 Neo', description: 'A compact phone with a 6.28-inch OLED display ,Snapdragon 695 processor, and a dual-camera system. It is aimed at users who prefer a smaller device.', price: '$399',ratings: { price: 4, camera: 5, performance: 3, battery: 4  }, image: 'thumb_675079_default_big-500x500.png' },
+  { id: 8.7, title: 'Motorola Moto G13', description: 'An affordable option with a 6.5-inch HD+ display, MediaTek Helio G85 processor, and a 50MP main camera. It offers solid battery life and features for its price.', price: '£97 (approx. $122) ',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '718V06K+3UL.jpg' },
+  { id: 9.7, title: 'Motorola Defy ', description: 'A rugged phone designed for durability with water and dust resistance, a 6.5-inch display, Snapdragon 480 Plus processor, and a 48MP main camera.', price: '$299',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: 'MDEFYDBBEUNKN05_1_Supersize.jpg' },
+  { id: 10.7, title: 'Motorola Razr 2022', description: 'Another foldable phone with a 6.7-inch OLED main display and a Snapdragon 8 Plus Gen 1 chipset. It features a 50MP main camera and offers a unique flip design.', price: '$999',ratings: { price: 4, camera: 5, performance: 3 , battery: 4 }, image: '93598335.jpg' },
   
   ],
   
@@ -905,18 +884,16 @@ button:hover {
   };
  
  
-  
-  // Global variable to store the current category
+
   let currentCategory = '';
+  let currentProductId = null;
   
   function showCategory() {
   document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-  document.getElementById('products-page').classList.remove('active');
-  document.getElementById('product-details-page').classList.remove('active');
+  document.getElementById('category-page').classList.add('active');
   document.getElementById('join').style.display = 'block';
-  document.getElementById('feature').style.display = 'flex'; // Ensure 'flex' display
-  document.querySelector('.back-button').style.display = 'block'; // Fix the selector to remove the dot before 'footer'
-  document.querySelector('').style.display = 'block';
+  document.getElementById('feature').style.display = 'flex';
+  document.querySelector('.back-button').style.display = 'block';
   }
   
   function showProducts(category) {
@@ -924,7 +901,6 @@ button:hover {
   const productsList = document.getElementById('products-list');
   const categoryTitle = document.getElementById('category-title');
   
-  // Update the current category
   currentCategory = category;
   
   categoryTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
@@ -933,7 +909,7 @@ button:hover {
   categories[category].forEach(product => {
   const productItem = document.createElement('li');
   const productLink = document.createElement('a');
-  const productImage = document.createElement('img'); // Create an image element
+  const productImage = document.createElement('img');
   
   productLink.innerHTML = `${product.title}`;
   productLink.href = "#";
@@ -941,36 +917,32 @@ button:hover {
   showProductDetails(product.id, category);
   };
   
-  productItem.appendChild(productImage); // Append the link before the image
+  productItem.appendChild(productImage);
+  productImage.src = product.image;
+  productImage.alt = product.title;
+  productImage.style.width = '100%';
+  productImage.style.padding = '50px';
+  productItem.appendChild(productLink);
   
-  productImage.src = product.image; // Set the src attribute to the product image URL
-  productImage.alt = product.title; // Set the alt attribute to the product title
-  productImage.style.width = '100%'; // Adjust the width of the image to fill the container
-  productImage.style.padding = '50px'; // Adjust padding
-  
-  productItem.appendChild(productLink); // Append the image
-  
-  productsList.appendChild(productItem); // Append the whole product item
+  productsList.appendChild(productItem);
   });
   
   document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
   productsPage.classList.add('active');
   document.getElementById('join').style.display = 'none';
-  document.getElementById('feature').style.display = 'none'; // Hide the feature section
-  document.querySelector('.back-button').style.display = 'none'; // Hide the footer
+  document.getElementById('feature').style.display = 'none';
+  document.querySelector('.back-button').style.display = 'none';
   }
-  
-  
   
   function showProductDetails(productId, category) {
   const product = categories[category].find(product => product.id === productId);
+  currentProductId = productId;
   
   if (product) {
   document.getElementById('product-title').textContent = product.title;
   document.getElementById('product-description').textContent = product.description;
   document.getElementById('product-price').textContent = product.price;
   
-  // Display the product image
   const productImage = document.getElementById('product-image');
   productImage.src = product.image;
   productImage.alt = product.title;
@@ -979,56 +951,73 @@ button:hover {
   const priceRatingStars = document.getElementById('price-rating-stars');
   const cameraRatingStars = document.getElementById('camera-rating-stars');
   const performanceRatingStars = document.getElementById('performance-rating-stars');
-  const batteryRatingStars = document.getElementById('battery-rating-stars');
   
   function renderStars(rating) {
   let stars = '';
+  const filledStar = '&#9733;'; // Golden star symbol
+  const emptyStar = '&#9734;'; // Empty star symbol
+  
   for (let i = 0; i < 5; i++) {
-  stars += i < rating ? '&#9733;' : '&#9734;';
+  stars += i < rating ? `<span style="color: gold">${filledStar}</span>` : `<span style="color: gold">${emptyStar}</span>`;
   }
   return stars;
   }
   
-  // Check if product has ratings
   if (product.ratings) {
   priceRatingStars.innerHTML = renderStars(product.ratings.price);
   cameraRatingStars.innerHTML = renderStars(product.ratings.camera);
   performanceRatingStars.innerHTML = renderStars(product.ratings.performance);
-  batteryRatingStars.innerHTML = renderStars(product.ratings.battery);
-    
   } else {
-  // If ratings are not available, show a message
   priceRatingStars.innerHTML = "Ratings not available";
   cameraRatingStars.innerHTML = "Ratings not available";
   performanceRatingStars.innerHTML = "Ratings not available";
-  batteryRatingStars.innerHTML = "Ratings not available";
-     
   }
+  
+  const feedbackList = document.getElementById('product-feedback');
+  feedbackList.innerHTML = ''; // Clear previous feedback
+  
+  db.collection("feedback").where("productId", "==", productId).get().then((querySnapshot) => {
+  if (querySnapshot.empty) {
+  feedbackList.innerHTML = '<p>No feedback available for this product.</p>';
+  } else {
+  querySnapshot.forEach((doc) => {
+  const feedback = doc.data();
+  const feedbackItem = document.createElement('div');
+  feedbackItem.innerHTML = `
+  <strong>${feedback.name}</strong><br>
+  ${feedback.comments}<br>
+  Quality: ${renderStars(feedback.quality)}<br>
+  Performance: ${renderStars(feedback.performance)}<br>
+  Camera: ${renderStars(feedback.camera)}<br>
+  Battery: ${renderStars(feedback.battery)}<br>
+  <hr>
+  `;
+  feedbackList.appendChild(feedbackItem);
+  });
+  }
+  }).catch((error) => {
+  console.error("Error getting feedback: ", error);
+  feedbackList.innerHTML = '<p>Error loading feedback. Please try again later.</p>';
+  });
   
   document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
   document.getElementById('product-details-page').classList.add('active');
   document.getElementById('join').style.display = 'none';
-  document.getElementById('feature').style.display = 'none'; // Hide the feature section
-  document.querySelector('.back-button').style.display = 'none'; // Hide the footer
+  document.getElementById('feature').style.display = 'none';
+  document.querySelector('.back-button').style.display = 'none';
   }
   }
   
   function showRatingForm() {
-  // Hide the product details page
   document.getElementById('product-details-page').classList.remove('active');
-  
-  // Show the rating form page
   document.getElementById('rating-form-page').classList.add('active');
   }
-  
-  
   
   function submitRatingForm(event) {
   event.preventDefault();
   
   const formData = new FormData(document.getElementById('rating-form'));
   
-  // Validate form fields
   const name = formData.get('name');
   const email = formData.get('email');
   const comments = formData.get('comments');
@@ -1036,39 +1025,107 @@ button:hover {
   const performance = formData.get('performance-rating');
   const camera = formData.get('camera-rating');
   const battery = formData.get('battery-rating');
+  const imageFile = formData.get('image-upload');
   
-  if (!name || !email || !comments || !quality || !performance || !camera || !battery) {
+  if (!name || !email || !comments || !quality || !performance || !camera || !battery || !imageFile) {
   alert('Please fill out all required fields.');
   return;
   }
   
+  const storageRef = storage.ref();
+  const imageRef = storageRef.child('images/' + imageFile.name);
+  imageRef.put(imageFile).then(snapshot => {
+  return snapshot.ref.getDownloadURL();
+  }).then(downloadURL => {
+  // Store feedback in Firebase with the image URL
+  db.collection("feedback").add({
+  productId: currentProductId,
+  name: name,
+  email: email,
+  comments: comments,
+  quality: parseInt(quality),
+  performance: parseInt(performance),
+  camera: parseInt(camera),
+  battery: parseInt(battery),
+  imageUrl: downloadURL,
+  timestamp: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(() => {
   alert('Thank you for your feedback!');
+  goBackToProduct();
+  }).catch((error) => {
+  console.error("Error adding feedback: ", error);
+  });
+  }).catch((error) => {
+  console.error("Error uploading image: ", error);
+  alert('Error uploading image. Please try again.');
+  });
   }
+  
   document.getElementById('rating-form').addEventListener('submit', submitRatingForm);
   
-  
+  document.getElementById('image-upload').addEventListener('change', function() {
+  const file = this.files[0];
+  if (file) {
+  const reader = new FileReader();
+  reader.onload = function(e) {
+  document.getElementById('image-preview').src = e.target.result;
+  document.getElementById('image-preview').style.display = 'block';
+  }
+  reader.readAsDataURL(file);
+  }
+  });
   
   function goBackToProduct() {
-  // Hide the rating form page
   document.getElementById('rating-form-page').classList.remove('active');
-  
-  // Show the product details page
   document.getElementById('product-details-page').classList.add('active');
   }
   
   function goBackToProducts() {
-  // Show the products page for the current category
   showProducts(currentCategory);
   }
   
-  // Initialize with the category page
   showCategory();
   
+ 
+  
+  
+
+  
+  
+  
+  </script>
+  
+  
+  
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  
+  <script type="text/javascript">
+  
+  const firebaseConfig = {
+  apiKey: "AIzaSyCgRM0qR_9Qx6eE6yqhy1xFTQ2nv-4qjwQ",
+  authDomain: "feedback-82388.firebaseapp.com",
+  databaseURL: "https://feedback-82388-default-rtdb.firebaseio.com",
+  projectId: "feedback-82388",
+  storageBucket: "feedback-82388.appspot.com",
+  messagingSenderId: "632761007475",
+  appId: "1:632761007475:web:00482a536ed18d11eb5906",
+  measurementId: "G-NJH64H38TH"
+  };
+  
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  //firebase.database().ref('feedback');
+  
+  </script>
   
   
   
   
  
-  </script>
+  
 </body>
 </html>
