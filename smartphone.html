@@ -429,6 +429,59 @@ button:hover {
   padding-top: 20px;
 }
 
+/* Feedback section */
+#product-feedback {
+    margin-top: 20px;
+}
+
+.feedback-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.feedback-item strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.feedback-item p {
+    margin: 0 0 10px;
+}
+
+.feedback-item img,
+.feedback-item video {
+    display: block;
+    margin: 10px 0;
+    max-width: 100px;
+    height: auto;
+}
+
+.feedback-item video {
+    max-height: 100px;
+}
+
+.star {
+    font-size: 18px;
+}
+
+.star.filled {
+    color: gold;
+}
+
+.star.empty {
+    color: lightgray;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+  
 
 </style>
 <body>
@@ -933,8 +986,9 @@ button:hover {
   document.getElementById('feature').style.display = 'none';
   document.querySelector('.back-button').style.display = 'none';
   }
-  
-  function showProductDetails(productId, category) {
+
+
+   function showProductDetails(productId, category) {
   const product = categories[category].find(product => product.id === productId);
   currentProductId = productId;
   
@@ -958,7 +1012,7 @@ button:hover {
   const emptyStar = '&#9734;'; // Empty star symbol
   
   for (let i = 0; i < 5; i++) {
-  stars += i < rating ? `<span style="color: gold">${filledStar}</span>` : `<span style="color: gold">${emptyStar}</span>`;
+  stars += i < rating ? `<span class="star filled">${filledStar}</span>` : `<span class="star empty">${emptyStar}</span>`;
   }
   return stars;
   }
@@ -983,13 +1037,17 @@ button:hover {
   querySnapshot.forEach((doc) => {
   const feedback = doc.data();
   const feedbackItem = document.createElement('div');
+  feedbackItem.className = 'feedback-item';
   feedbackItem.innerHTML = `
-  <strong>${feedback.name}</strong><br>
-  ${feedback.comments}<br>
-  Quality: ${renderStars(feedback.quality)}<br>
-  Performance: ${renderStars(feedback.performance)}<br>
-  Camera: ${renderStars(feedback.camera)}<br>
-  Battery: ${renderStars(feedback.battery)}<br>
+  <strong>${feedback.name}</strong>
+  <p>${feedback.comments}</p>
+  <p>Quality: ${renderStars(feedback.quality)}</p>
+  <p>Performance: ${renderStars(feedback.performance)}</p>
+  <p>Camera: ${renderStars(feedback.camera)}</p>
+  <p>Battery: ${renderStars(feedback.battery)}</p>
+  
+  
+  
   <hr>
   `;
   feedbackList.appendChild(feedbackItem);
@@ -1007,6 +1065,10 @@ button:hover {
   document.querySelector('.back-button').style.display = 'none';
   }
   }
+  
+  
+
+
   
   function showRatingForm() {
   document.getElementById('product-details-page').classList.remove('active');
