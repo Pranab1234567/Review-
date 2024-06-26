@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+  <!-- Add Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/font-size/font-size.css">
+<link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/padding/padding.css">
+<style type="text/css">
+*{margim:0;padding:0;box-sizing:border-box;}
+body{width:100%;height:100%;}
+
+
+.navbar-brand .logo {
+    height: 60px;  
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand .logo {
+        height: 40px;  
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand .logo {
+        height: 40px;  
+    }
+}
+
+
+
+
+
+
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+    margin-top: 70px;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+.heading{margin-top:40px;text-align:center;
+background-color: #FFFCF6;
+color:#006A6A;
+}
+hr {
+  width: 50%; 
+  height: 2px; 
+  margin: 0 auto; 
+  background-color: #f3971b; 
+}
+
+
+
+
+#feature {display:flex;align_items:center;
+justify-content:space-between;flex-wrap:wrap;
+margin-top:40px;
+background-color: #FFFCF6;
+color:#006A6A;
+}
+
+
+
+#feature .fe-box{width:200px;text-align:center;
+padding:25px 15px;box-shadow:20px 20px 34px rgba(0,0,0,0.03);
+border:1px solid #cce7d0;border-radius:4px;margin:15px 0;
+}
+#feature .fe-box:hover{box-shadow:10px 10px 54px rgba(20,63,221,0.1);}
+#feature .fe-box h6{display:inline-block;
+padding:9px 8px 6px 8px;line-height:1;border-radius:4px;
+color:#013178;background-color:#fddde4;
+}
+#feature .fe-box img{width:100%;margin-bottom:10px;}
+#feature .fe-box:nth-child(2) h6{background-color:#f3971b;}
+#feature .fe-box:nth-child(3) h6{background-color:aqua;}
+#feature .fe-box:nth-child(4) h6{background-color:lime;}
+#feature .fe-box:nth-child(5) h6{background-color:tomato;}
+#feature .fe-box:nth-child(6) h6{background-color:yellow;}
+#feature .fe-box:nth-child(7) h6{background-color:#f3971b;}
+#feature .fe-box:nth-child(8) h6{background-color:pink;}
+
+
+
+#join{
+height:auto;
+background-color:;
+color:#FFFCF6;
+text-align:center;
+margin-top:30px;
+  padding-bottom:30px;
+  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+     
+}
+#join h1{font-size:40px;
+text-align:center;
+padding-top:60px;}
+#join p{font-size:22px;
+text-align:center;
+padding-top:20px;
+padding-left:50px;
+padding-right:50px;
+}
+#join .b{padding-top:50px;  }
+        
+        
+        #product-image {
+        display: ;
+        margin: 0 auto; /* Center horizontally */
+        max-width: 100%; /* Ensure image does not exceed container width */
+        height: auto; /* Maintain aspect ratio */
+        padding-left:30px;
+        padding-right:30px;
+        display:block;
+        justify-content: center; /* center horizontally */
+        align-items: center; /* center vertically */
+        
+        
+        }
+        
+        #product-page {
+        display:flex;
+        margin: 0 auto; /* Center horizontally */
+        max-width: 100%; /* Ensure image does not exceed container width */
+        height: auto; /* Maintain aspect ratio */
+        padding-left:30px;
+        padding-right:30px;
+        display:block;
+        justify-content: center; /* center horizontally */
+        align-items: center; /* center vertically */
+        
+        
+        }
+        
+        
+        #products-page{
+background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  
+}
+       
+        
+        .page {
+        display: none;
+        
+        }
+        .page.active {
+        display: block;
+        }
+        .page h1{
+        text-align: center;
+        margin: 20px 0;
+        }
+        .page ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        }
+        .page li {
+        margin: 10px 0;
+        }
+        .page p {
+        text-align: center;
+        font-weight: bold;
+        margin: 10px 20px;
+        }
+        a {
+        text-decoration: none;
+        color: blue;
+        cursor: pointer;
+        }
+        a:hover {
+        text-decoration: underline;
+        }
+        button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        display: inline-block;
+        
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        }
+        .button:hover {
+        background-color: #0056b3;
+        }
+        .rating {
+        display:flex;
+        justify-content: center;
+        margin-top: 10px;
+        color: gold;
+        }
+        .rating span {
+        font-size: 20px;
+        color: gold;
+        margin-right: 5px;
+        }
+        .rating-category {
+        text-align: center;
+        margin: 10px 0;
+        }
+        /* Rating Form Styles */
+        #rating-form-page {
+        display: ;
+        
+        }
+        
+        #rating-form {
+        max-width:100%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: ;
+        border-radius: 5px;
+        background-color:;
+        color:#FFFCF6;
+          background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+     
+        }
+        
+        #rating-form label {
+        font-weight: bold;
+        }
+        
+        #rating-form input[type="text"],
+        #rating-form input[type="email"],
+        #rating-form textarea,
+        #rating-form input[type="number"],
+        #rating-form input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        }
+        
+        #rating-form textarea {
+        height: 100px;
+        }
+        
+        #rating-form button[type="submit"],
+        #rating-form button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        }
+        
+        #rating-form button[type="submit"]:hover,
+        #rating-form button:hover {
+        background-color: #45a049;
+        }
+        
+        .bg-light, .link-secondary {
+        background-color: #FFFCF6 !important;
+        color: #006A6A !important;
+        }
+        
+        
+       
+       
+      
+            
+        
+        /* Responsive Styles */
+        @media only screen and (max-width: 600px) {
+        #rating-form {
+        padding: 10px;
+        }
+        
+        #rating-form input[type="text"],
+        #rating-form input[type="email"],
+        #rating-form textarea,
+        #rating-form input[type="number"],
+        #rating-form input[type="file"] {
+        padding: 8px;
+        }
+        }
+        
+@media screen and (max-width:768px){
+
+#feature .fe-box{width:155px;margin:0 0 15px 0;}
+#feature{justify-content:center;}
+#join{height: auto; /* Adjust height as needed */
+padding: 10px;
+text-align:center;
+}
+
+}
+
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+/* Product List Flex Layout */
+#products-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#products-list li {
+  list-style: none;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #006A6A;
+  border-color: ;
+  width: calc(33.333% - 20px); /* Three items per row */
+  background-color:#FFFCF6;
+}
+
+#products-list li img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  #products-list li {
+    width: calc(50% - 20px); /* Two items per row on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  #products-list li {
+    width: 100%; /* One item per row on mobile */
+  }
+}
+
+
+
+
+
+
+
+/* General Styles */
+
+
+.page {
+  display: none;
+  padding: 20px;
+}
+
+.page.active {
+  display: block;
+}
+
+/* Product Details Layout */
+#product-details-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#product-details-page h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#product-ratings {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.rating-category {
+  flex: 1;
+  text-align: center;
+}
+
+.rating {
+  margin-top: 5px;
+}
+
+#product-description {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+#product-price {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+button {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: ;
+}
+
+#feedback-section {
+  margin-top: 40px;
+}
+
+#feedback-section h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.feedback-list {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+/* Feedback section */
+#product-feedback {
+    margin-top: 20px;
+}
+
+.feedback-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.feedback-item strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.feedback-item p {
+    margin: 0 0 10px;
+}
+
+.feedback-item img,
+.feedback-item video {
+    display: block;
+    margin: 10px 0;
+    max-width: 100px;
+    height: auto;
+}
+
+.feedback-item video {
+    max-height: 100px;
+}
+
+.star {
+    font-size: 18px;
+}
+
+.star.filled {
+    color: gold;
+}
+
+.star.empty {
+    color: lightgray;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+
+</style>
+<body>
+<nav class="navbar bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="REVIEW MASTER (2).png" alt="Logo" class="logo"> </a>
+    
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+      <a class="navbar-brand" href="#"><img src="REVIEW MASTER (2).png" alt="Logo" class="logo"> </a>
+      
+      
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="review.html">Review</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+<a href="catagory.html" class="back-button">&#8592; Back</a>
+
+
+<div class="heading">
+<h1 style="color:#4151af;">Select Your Brand</h1>
+<hr style="color:#f3971b;">
+</div>
+
+<section id="feature"class="section-p1">
+
+<a href="#" onclick="showProducts('Apple')"><div class="fe-box">
+<img src=" IMG_20240602_195906.jpg">
+<h6>Apple</h6>
+</div></a>
+
+<a href="#" onclick="showProducts('Dell')"><div class="fe-box">
+<img src=" IMG_20240602_200016.jpg">
+<h6>Dell</h6>
+</div></a>
+
+<a href="#" onclick="showProducts('HP')"><div class="fe-box">
+<img src="IMG_20240602_195612.jpg ">
+<h6>HP</h6>
+</div></a>
+
+<a href="#" onclick="showProducts('Lenovo')"><div class="fe-box">
+<img src="IMG_20240602_195543.png">
+<h6>Lenovo</h6>
+</div></a>
+
+<a href="#" onclick="showProducts('Samsung')"><div class="fe-box">
+<img src="81TjRLHaz1L.jpg ">
+<h6>Samsung</h6>
+</div></a>
+
+<a href="#" onclick="showProducts('LG')"><div class="fe-box">
+<img src=" 27GQ50F-B-D-1.jpg">
+<h6>LG</h6>
+</div></a>
+
+<a href="#" onclick="showProducts('ASUS')"><div class="fe-box">
+<img src="IMG_20240602_195232.png">
+<h6>ASUS</h6>
+</div></a>
+
+<a href="#" onclick="showProducts('Acer')"><div class="fe-box">
+<img src="81HYrPlyG7L.jpg">
+<h6>Acer</h6>
+</div></a>
+
+
+
+</section>
+
+
+<section id="join">
+<h1 style="color: " >Ready to Unlock Genuine Insights?</h1>
+<p style="color: " >Join Review Master today to discover authentic user reviews,
+ personalized recommendations, and trusted community feedback. Make the best decisions for your
+  next phone purchase.</p>
+  <div class="b">
+  <button type="button" class="btn btn-primary btn-lg">Sign Up Now</button>
+  <button type="button" class="btn btn-secondary btn-lg">Learn More</button>
+  </div>
+</section>
+
+
+
+<!-- Categories Page (Initial View) -->
+<div id="category-page" class="page">
+  <!-- Category content will go here -->
+</div>
+
+<!-- Products Page -->
+<div id="products-page" class="page">
+  <h1 id="category-title"></h1>
+  <ul id="products-list"></ul>
+  <button onclick="showCategory()">Back to Categories</button>
+</div>
+
+
+
+  <!-- Product Details Page -->
+<div id="product-details-page" class="page">
+  <h1 id="product-title"></h1>
+  <img id="product-image" src="" alt="" style="width: 300px; height: auto;" class="product-image">
+  <div id="product-ratings">
+    <div id="price-rating" class="rating-category">
+      <strong>Price:</strong>
+      <div class="rating" id="price-rating-stars"></div>
+    </div>
+    <!--
+    <div id="quality-rating" class="quality-category">
+    <strong>Quality:</strong>
+    <div class="rating" id="quality-rating-stars"></div>
+    </div>
+    -->
+    <div id="performance-rating" class="rating-category">
+      <strong>Performance:</strong>
+      <div class="rating" id="performance-rating-stars"></div>
+    </div>
+  </div>
+  <p id="product-description"></p>
+  <p id="product-price"></p>
+  <button onclick="goBackToProducts()">Back to Products</button>
+  <button onclick="showRatingForm()">Rate Now</button>
+
+  <!-- Customer Feedback Section -->
+  <div id="product-feedback"></div>
+</div>
+
+  <!-- Rating Form Page -->
+<div id="rating-form-page" class="page" style="display: ;">
+  <h1>Rate the Product</h1>
+  <form id="rating-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    
+    <label for="comments">Comments:</label><br>
+    <textarea id="comments" name="comments" required></textarea><br><br>
+
+    <label for="quality-rating">Quality:</label>
+    <input type="number" id="quality-rating" name="quality-rating" min="1" max="5" required><br><br>
+
+    <label for="performance-rating">Performance:</label>
+    <input type="number" id="performance-rating" name="performance-rating" min="1" max="5" required><br><br>
+
+    
+    <label for="price-rating">price:</label>
+    <input type="number" id="price-rating" name="price-rating" min="1" max="5" required><br><br>
+
+    
+    <button type="submit">Submit</button>
+  </form>
+  <button onclick="goBackToProduct()">Back to Product</button>
+</div>
+
+
+
+
+ 
+  
+
+
+
+
+
+<footer class="footer">
+
+  
+  <section class="bg-light py-4 py-md-5 py-xl-8 border-top border-light">
+    <div class="">
+      <div class="row gy-4 gy-lg-0 justify-content-xl-between">
+        <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+          <div class="widget">
+            <a href="#!">
+              <img src="Download/REVIEW MASTER (2).png" alt=" Logo" width="auto" height="50px">
+            </a>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+          <div class="widget">
+            <h4 class="widget-title mb-4" style="color:#4151af;">Get in Touch</h4>
+            <address class="mb-4">Remuna Balasore ,Odisha India</address>
+            <p class="mb-1">
+              <a class="link-secondary text-decoration-none" href="tel:+15057922430">(505) 792-2430</a>
+            </p>
+            <p class="mb-0">
+              <a class="link-secondary text-decoration-none" href="pranabmahalik1@gmail.com">pranabmahalik1@gmail.com</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+          <div class="widget">
+            <h4 class="widget-title mb-4" style="color:#4151af;">Learn More</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a href="#!" class="link-secondary text-decoration-none">About</a>
+              </li>
+              <li class="mb-2">
+                <a href="#!" class="link-secondary text-decoration-none">Contact</a>
+              </li>
+              <li class="mb-2">
+                <a href="#!" class="link-secondary text-decoration-none">Advertise</a>
+              </li>
+              <li class="mb-2">
+                <a href="#!" class="link-secondary text-decoration-none">Terms of Service</a>
+              </li>
+              <li class="mb-0">
+                <a href="#!" class="link-secondary text-decoration-none">Privacy Policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 col-xl-4">
+          <div class="widget">
+            <h4 class="widget-title mb-4" style="color:#4151af;">Our Newsletter</h4>
+            <p class="mb-4">Subscribe to our newsletter to get our news & discounts delivered to you.</p>
+            <form action="#!">
+              <div class="row gy-4">
+                <div class="col-12">
+                  <div class="input-group">
+                    <span class="input-group-text" id="email-newsletter-addon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+                      </svg>
+                    </span>
+                    <input type="email" class="form-control" id="email-newsletter" value="" placeholder="Email Address" aria-label="email-newsletter" aria-describedby="email-newsletter-addon" required>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="d-grid">
+                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Copyright - Bootstrap Brain Component -->
+  <div class="bg-light py-4 py-md-5 py-xl-8 border-top border-light-subtle">
+    <div class="">
+      <div class="row gy-4 gy-md-0 align-items-md-center">
+        <div class="col-xs-12 col-md-7 order-1 order-md-0">
+          <div class="copyright text-center text-md-start">
+            &copy; 2024. All Rights Reserved.
+          </div>
+          <div class="credits text-secondary text-center text-md-start mt-2 fs-8">
+            Built by <a href="https://bootstrapbrain.com/" class="link-secondary text-decoration-none">Pranab</a> with <span class="text-primary">&#9829;</span>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-5 order-0 order-md-1">
+          <div class="social-media-wrapper">
+            <ul class="list-unstyled m-0 p-0 d-flex justify-content-center justify-content-md-end">
+              <li class="me-3">
+                <a href="#!" class="link-dark link-opacity-75-hover">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="me-3">
+                <a href="#!" class="link-dark link-opacity-75-hover">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="me-3">
+                <a href="#!" class="link-dark link-opacity-75-hover">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                  </svg>
+                </a>
+              </li>
+              <li class="">
+                <a href="#!" class="link-dark link-opacity-75-hover">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+  const categories = {
+  
+  
+  Apple: [
+  { id: 21, title: 'Apple Pro Display XDR', description: 'The Apple Pro Display XDR is a 32-inch Retina 6K display that offers extreme dynamic range and unparalleled color accuracy, making it perfect for professional workflows.', price: '$4,999', ratings: { price: 2, performance: 5, quality: 5 }, image: 'apple_pro_display_xdr_roundup_header.png' },
+  { id: 22, title: 'Apple Thunderbolt Display', description: 'The Apple Thunderbolt Display is a 27-inch monitor that provides excellent image quality with a 2560x1440 resolution and built-in Thunderbolt connectivity, designed for seamless integration with Mac computers.', price: '$999', ratings: { price: 3, performance: 4, quality: 4 }, image: 's-l400.jpg' },
+  { id: 23, title: 'Apple Cinema Display', description: 'The Apple Cinema Display is a 30-inch LCD monitor that offers a high resolution of 2560x1600, providing ample screen real estate and sharp image quality for professional use.', price: '$1,799', ratings: { price: 3, performance: 4, quality: 4 }, image: '3634819048_e1e8076434_b.jpg' },
+  { id: 24, title: 'Apple Studio Display', description: 'The Apple Studio Display is a 27-inch monitor featuring a 5K Retina display, offering incredible detail and color accuracy. It also includes a 12MP ultra-wide camera and studio-quality mics.', price: '$1,599', ratings: { price: 4, performance: 5, quality: 5 }, image: 'IMG_20240602_201539.jpg' },
+  { id: 25, title: 'Apple LED Cinema Display', description: 'The Apple LED Cinema Display is a 27-inch monitor with a 2560x1440 resolution, providing vibrant colors and clear images. It features an integrated iSight camera, microphone, and speakers.', price: '$999', ratings: { price: 3, performance: 4, quality: 4 }, image: '41NeJFTZXSL.jpg' },
+  { id: 26, title: 'Apple iMac 27-inch (Retina 5K)', description: 'While primarily an all-in-one computer, the iMac 27-inch with Retina 5K display can be used as a standalone monitor. It offers stunning 5K resolution and incredible color accuracy.', price: '$1,799', ratings: { price: 3, performance: 5, quality: 5 }, image: 'IMG_20240602_201846.jpg' },
+  { id: 27, title: 'Apple iMac 24-inch (M1, 2021)', description: 'The 24-inch iMac with M1 chip features a 4.5K Retina display with P3 wide color gamut and True Tone technology. It is designed for both professional and everyday use.', price: '$1,299', ratings: { price: 4, performance: 5, quality: 5 }, image: 'IMG_20240602_202017.jpg' },
+  { id: 28, title: 'Apple Thunderbolt Display (Refurbished)', description: 'The refurbished Apple Thunderbolt Display offers a 27-inch screen with a 2560x1440 resolution and Thunderbolt connectivity, providing a high-quality and cost-effective solution for Mac users.', price: '$799', ratings: { price: 4, performance: 4, quality: 4 }, image: 'IMG_20240602_202531.png' }
+  ],
+  
+ 
+ Dell: [
+ { id: 21.1, title: 'Dell UltraSharp U2720Q', description: 'The Dell UltraSharp U2720Q is a 27-inch 4K monitor with InfinityEdge and USB-C connectivity. It provides excellent color accuracy and a sleek design, ideal for creative professionals.', price: '$599', ratings: { price: 4, performance: 4, quality: 5 }, image: '6jD85us3JhznDL2pJSvjXM-1200-80.jpg' },
+ { id: 22.1, title: 'Dell P2419H', description: 'The Dell P2419H is a 24-inch Full HD monitor designed for everyday use. It features an ultra-thin bezel design, IPS technology, and extensive connectivity options, making it perfect for both work and entertainment.', price: '$229', ratings: { price: 5, performance: 4, quality: 4 }, image: 'IMG_20240602_203355.jpg' },
+ { id: 23.1, title: 'Dell S3221QS', description: 'The Dell S3221QS is a 32-inch curved 4K monitor offering a stunning visual experience with HDR support. It features built-in speakers and a sleek, modern design.', price: '$499', ratings: { price: 4, performance: 5, quality: 5 }, image: 'yvpz7bJXrKUTXAEdPiwrma.jpg' },
+ { id: 24.1, title: 'Dell Alienware AW2521H', description: 'The Alienware AW2521H is a 24.5-inch gaming monitor with a blazing fast 360Hz refresh rate and NVIDIA G-Sync support. It offers an immersive gaming experience with vibrant colors and smooth visuals.', price: '$899', ratings: { price: 3, performance: 5, quality: 5 }, image: 'UHYP3HAIoWIlHqD7.jpg' },
+ { id: 25.1, title: 'Dell UltraSharp U4919DW', description: 'The Dell UltraSharp U4919DW is a 49-inch curved dual QHD monitor, providing a panoramic view and extensive screen real estate for multitasking. It features USB-C connectivity and superb color accuracy.', price: '$1,699', ratings: { price: 3, performance: 5, quality: 5 }, image: 'IMG_20240603_210251.jpg' },
+ { id: 26.1, title: 'Dell S2719DGF', description: 'The Dell S2719DGF is a 27-inch QHD gaming monitor with a 155Hz refresh rate and AMD FreeSync technology. It offers fast response times and smooth gameplay, perfect for competitive gaming.', price: '$449', ratings: { price: 4, performance: 5, quality: 4 }, image: 'IMG_20240603_210436.jpg' },
+ { id: 27.1, title: 'Dell P3421W', description: 'The Dell P3421W is a 34-inch ultrawide monitor designed for productivity. It features a WQHD curved display, USB-C connectivity, and a built-in KVM switch for seamless multitasking.', price: '$799', ratings: { price: 4, performance: 5, quality: 5 }, image: 'IMG_20240603_210857.png' },
+ { id: 28.1, title: 'Dell U2718Q', description: 'The Dell U2718Q is a 27-inch 4K monitor with HDR support. It offers stunning visuals with Dells InfinityEdge design and excellent color accuracy, making it ideal for professional use.', price: '$699', ratings: { price: 4, performance: 5, quality: 5 }, image: 'IMG_20240603_210710.jpg' }
+ ],
+ 
+ HP: [
+ { id: 21.2, title: 'HP Z27', description: 'The HP Z27 is a 27-inch 4K UHD monitor with factory color calibration, offering stunning clarity and accurate colors. It features USB-C connectivity for seamless integration with modern devices.', price: '$649', ratings: { price: 4, performance: 5, quality: 5 }, image: 'IMG_20240603_211525.jpg' },
+ { id: 22.2, title: 'HP EliteDisplay E243', description: 'The HP EliteDisplay E243 is a 24-inch Full HD monitor with ultra-thin bezels, adjustable ergonomics, and a range of connectivity options. It is ideal for a sleek and modern office setup.', price: '$229', ratings: { price: 5, performance: 4, quality: 4 }, image: 'IMG_20240603_211857.jpg' },
+ { id: 23.2, title: 'HP Omen X 27', description: 'The HP Omen X 27 is a 27-inch QHD gaming monitor with a 240Hz refresh rate and 1ms response time. It supports AMD FreeSync 2 HDR for an immersive and smooth gaming experience.', price: '$499', ratings: { price: 4, performance: 5, quality: 5 }, image: 'IMG_20240603_211947.jpg' },
+ { id: 24.2, title: 'HP Pavilion 27xw', description: 'The HP Pavilion 27xw is a 27-inch Full HD IPS monitor with a sleek design, wide viewing angles, and vivid colors. It is perfect for both entertainment and productivity.', price: '$199', ratings: { price: 5, performance: 4, quality: 4 }, image: 'IMG_20240603_212120.jpg' },
+ { id: 25.2, title: 'HP Z43', description: 'The HP Z43 is a 43-inch 4K UHD monitor designed for professionals who need a large screen with precise color accuracy and extensive connectivity options, including USB-C.', price: '$799', ratings: { price: 3, performance: 5, quality: 5 }, image: 'IMG_20240603_212421.jpg' },
+ { id: 26.2, title: 'HP Envy 34', description: 'The HP Envy 34 is a curved 34-inch WQHD monitor that offers an immersive viewing experience with its ultra-wide aspect ratio, built-in speakers, and sleek design.', price: '$899', ratings: { price: 3, performance: 5, quality: 5 }, image: 'IMG_20240603_212457.jpg' },
+ { id: 27.2, title: 'HP VH240a', description: 'The HP VH240a is a budget-friendly 24-inch Full HD monitor with an ergonomic stand, built-in speakers, and an ultra-thin bezel design, making it an excellent choice for home and office use.', price: '$169', ratings: { price: 5, performance: 4, quality: 4 }, image: '07uWPqS2w6Z4nGVCo3W2xgh-1..v1616375611.jpg' },
+ { id: 28.2, title: 'HP DreamColor Z31x', description: 'The HP DreamColor Z31x is a 31.1-inch 4K monitor designed for color-critical work, featuring a built-in colorimeter for precise calibration, advanced color controls, and an IPS panel for consistent color accuracy.', price: '$2,999', ratings: { price: 2, performance: 5, quality: 5 }, image: 'IMG_20240603_212735.jpg' }
+ ],
+  
+  
+  Lenovo: [
+  { id: 21.3, title: 'Lenovo ThinkVision P27u-10', description: 'The Lenovo ThinkVision P27u-10 is a 27-inch 4K UHD monitor offering exceptional color accuracy with factory calibration. It features USB-C connectivity for versatile device compatibility.', price: '$649', ratings: { price: 4, performance: 5, quality: 5 }, image: 'IMG_20240605_200453.jpg' },
+  { id: 22.3, title: 'Lenovo ThinkVision T24i-20', description: 'The Lenovo ThinkVision T24i-20 is a 23.8-inch Full HD monitor with an ultra-thin bezel, ergonomic stand, and multiple connectivity options, making it ideal for a modern workspace.', price: '$209', ratings: { price: 5, performance: 4, quality: 4 },  image: 'IMG_20240605_200510.png' },
+  { id: 23.3, title: 'Lenovo Legion Y27q-20', description: 'The Lenovo Legion Y27q-20 is a 27-inch QHD gaming monitor with a 165Hz refresh rate and 1ms response time. It supports NVIDIA G-SYNC for a smooth and immersive gaming experience.',  price: '$499',  ratings: { price: 4, performance: 5, quality: 5 },  image: 'IMG_20240605_200528.jpg'  },
+  { id: 24.3, title: 'Lenovo ThinkVision X1', description: 'The Lenovo ThinkVision X1 is a 27-inch 4K UHD monitor with an ultra-slim design, advanced HDR support, and USB-C connectivity. It is perfect for professionals seeking top-tier display quality.', price: '$799',  ratings: { price: 3, performance: 5, quality: 5 },  image: 'IMG_20240605_200649.jpg'  },
+  { id: 25.3, title: 'Lenovo Q27h-10',  description: 'The Lenovo Q27h-10 is a 27-inch QHD monitor with a sleek design, IPS panel, and USB-C connectivity. It offers vibrant colors and wide viewing angles, suitable for both entertainment and productivity.',  price: '$299',  ratings: { price: 4, performance: 4, quality: 4 },   image: '71VceeC36ZL.jpg'   },
+  { id: 26.3, title: 'Lenovo ThinkVision P44w-10', description: 'The Lenovo ThinkVision P44w-10 is a 43.4-inch ultra-wide curved monitor with a WQHD resolution, providing an immersive viewing experience with ample screen real estate for multitasking.',  price: '$1,299',  ratings: { price: 3, performance: 5, quality: 5 }, image: 'IMG_20240605_200850.jpg'  },
+  { id: 27.3, title: 'Lenovo L24q-30', description: 'The Lenovo L24q-30 is a 23.8-inch QHD monitor with ultra-thin bezels, an IPS panel, and a stylish design. It is an excellent choice for home and office use, offering great value for its price.', price: '$199', ratings: { price: 5, performance: 4, quality: 4 },  image: 'IMG_20240605_200942.jpg' },
+  { id: 28.3,  title: 'Lenovo ThinkVision Creator Extreme', description: 'The Lenovo ThinkVision Creator Extreme is a 27-inch 4K UHD monitor designed for creative professionals. It features mini-LED backlighting, HDR1000, and precise color accuracy.',  price: '$2,499',  ratings: { price: 2, performance: 5, quality: 5 }, image: '12_Thinkvision_Creator_P27_Hero_Front_Facing_Left.png'  }
+  ],
+ 
+  
+  
+  Samsung: [
+  { id: 21.4,  title: 'Samsung Odyssey G9',  description: 'The Samsung Odyssey G9 is a 49-inch curved QHD gaming monitor with a 240Hz refresh rate and 1ms response time. It features NVIDIA G-SYNC and FreeSync Premium Pro for an immersive gaming experience.',  price: '$1,499',   ratings: { price: 3, performance: 5, quality: 5 },  image: 'IMG_20240605_201630.jpg'  },
+  { id: 22.4,  title: 'Samsung Smart Monitor M7',  description: 'The Samsung Smart Monitor M7 is a 32-inch 4K UHD monitor with smart TV functionality, built-in speakers, and wireless DeX. It offers versatility for both work and entertainment.', price: '$399',  ratings: { price: 4, performance: 4, quality: 4 },   image: 'IMG_20240605_201735.jpg'  },
+  { id: 23.4,  title: 'Samsung U32J590',  description: 'The Samsung U32J590 is a 32-inch 4K UHD monitor with excellent color accuracy and an ergonomic design. It is perfect for professional use and detailed visual tasks.',  price: '$349',   ratings: { price: 4, performance: 4, quality: 4 },  image: 'IMG_20240605_201903.jpg'  },
+  { id: 24.4,  title: 'Samsung CHG90', description: 'The Samsung CHG90 is a 49-inch curved QHD monitor with HDR support and a 144Hz refresh rate. It provides a wide field of view and smooth performance for gaming and multitasking.',  price: '$999',   ratings: { price: 3, performance: 5, quality: 5 },  image: 'IMG_20240605_202119.jpg'  },
+  { id: 25.4,  title: 'Samsung Space Monitor SR75', description: 'The Samsung Space Monitor SR75 is a 32-inch 4K UHD monitor with a unique space-saving design. It features an adjustable arm stand that allows it to be pushed back flat against a wall when not in use.',  price: '$499', ratings: { price: 4, performance: 4, quality: 4 }, image: 'S27R75_032_2motion2_Black_gallery001.jpg'   },
+  { id: 26.4,  title: 'Samsung CJ791',  description: 'The Samsung CJ791 is a 34-inch ultra-wide QHD curved monitor with Thunderbolt 3 connectivity. It offers a seamless workspace and vibrant colors for both work and play.', price: '$799', ratings: { price: 3, performance: 5, quality: 4 },   image: 'IMG_20240605_202232.jpg' },
+  { id: 27.4,  title: 'Samsung T55',  description: 'The Samsung T55 is a 32-inch curved Full HD monitor with a 75Hz refresh rate and AMD FreeSync. It provides a comfortable viewing experience with its 1000R curvature and vibrant picture quality.',  price: '$249', ratings: { price: 5, performance: 4, quality: 4 },   image: 'IMG_20240605_202320.png' },
+  { id: 28.4,  title: 'Samsung S27R750Q', description: 'The Samsung S27R750Q is a 27-inch QHD monitor with a space-saving design and slim bezels. It features a flexible arm stand and provides clear and sharp visuals, ideal for both work and entertainment.',   price: '$399',  ratings: { price: 4, performance: 4, quality: 4 }, image: 'IMG_20240605_202457.jpg' }
+  ],
+  
+  
+  LG: [
+  {  id: 21.5,  title: 'LG UltraGear 27GN950-B', description: 'The LG UltraGear 27GN950-B is a 27-inch 4K UHD gaming monitor with a 144Hz refresh rate and 1ms response time. It features NVIDIA G-SYNC and AMD FreeSync Premium Pro for smooth and tear-free gaming.',  price: '$999', ratings: { price: 3, performance: 5, quality: 5 },  image: 'D_01.jpg' },
+  {  id: 22.5, title: 'LG 27UK650-W',  description: 'The LG 27UK650-W is a 27-inch 4K UHD monitor with HDR support and AMD FreeSync technology. It offers accurate colors and sharp details, making it suitable for both work and entertainment.',  price: '$399',  ratings: { price: 4, performance: 4, quality: 4 }, image: 'dm-01.jpg' },
+  {  id: 23.5,  title: 'LG 34GN850-B', description: 'The LG 34GN850-B is a 34-inch ultra-wide QHD gaming monitor with a 160Hz refresh rate and 1ms response time. It features NVIDIA G-SYNC compatibility and offers an immersive gaming experience.',   price: '$999',  ratings: { price: 3, performance: 5, quality: 5 },  image: 'd4.jpg'  },
+  {  id: 24.5,  title: 'LG 32UN880-B', description: 'The LG 32UN880-B is a 32-inch 4K UHD monitor with an Ergo stand that provides versatile ergonomic adjustments. It features USB-C connectivity and HDR10 support for enhanced productivity.',  price: '$699', ratings: { price: 4, performance: 5, quality: 5 }, image: '32UN880-B-D-02.jpg' },
+  {  id: 25.5, title: 'LG 38WK95C-W',  description: 'The LG 38WK95C-W is a 38-inch ultra-wide QHD+ monitor with a curved IPS panel. It offers accurate color reproduction and extensive connectivity options, making it suitable for professionals.',  price: '$1,499',  ratings: { price: 3, performance: 4, quality: 4 },  image: '511L4fWd4EL.jpg'  },
+  {  id: 26.5,  title: 'LG 29UM69G-B',  description: 'The LG 29UM69G-B is a 29-inch ultra-wide Full HD gaming monitor with a 75Hz refresh rate and AMD FreeSync technology. It offers a wide viewing angle and immersive gaming experience.',  price: '$249', ratings: { price: 5, performance: 4, quality: 4 }, image: 'LG_UltraGear_Gaming_Monitor.0.jpg' },
+  {  id: 27.5,   title: 'LG 34WL85C-B', description: 'The LG 34WL85C-B is a 34-inch ultra-wide QHD monitor with USB-C connectivity and HDR10 support. It offers accurate colors and ample screen space for multitasking.',  price: '$749', ratings: { price: 4, performance: 4, quality: 4 },  image: 'D-4.jpg' },
+  {  id: 28.5,  title: 'LG 27GL850-B',  description: 'The LG 27GL850-B is a 27-inch QHD gaming monitor with a 144Hz refresh rate and 1ms response time. It features NVIDIA G-SYNC compatibility and offers smooth and responsive gameplay.',  price: '$449',  ratings: { price: 4, performance: 5, quality: 5 }, image: 'medium01.jpg' }
+  ],
+  
+  
+  
+  
+  
+  ASUS: [
+  {  id: 21.6,  title: 'ASUS ROG Swift PG279Q',  description: 'The ASUS ROG Swift PG279Q is a 27-inch QHD gaming monitor with a 165Hz refresh rate and NVIDIA G-SYNC technology. It features an IPS panel for vibrant colors and wide viewing angles.',  price: '$699', ratings: { price: 3, performance: 5, quality: 5 },  image: 'IMG_20240625_224024.jpg'  },
+  {  id: 22.6, title: 'ASUS TUF Gaming VG27AQ',  description: 'The ASUS TUF Gaming VG27AQ is a 27-inch QHD gaming monitor with a 165Hz refresh rate and ASUS Extreme Low Motion Blur Sync technology. It offers smooth and tear-free gameplay.',  price: '$429',  ratings: { price: 4, performance: 4, quality: 4 }, image: 'IMG_20240625_224240.jpg' },
+  {  id: 23.6,  title: 'ASUS ProArt PA278QV', description: 'The ASUS ProArt PA278QV is a 27-inch QHD monitor with factory calibration and ASUS ProArt Calibration technology. It offers accurate colors and is suitable for professional work.',  price: '$329',  ratings: { price: 4, performance: 4, quality: 4 },  image: 'IMG_20240625_224337.jpg'  },
+  {  id: 24.6, title: 'ASUS ROG Strix XG279Q',  description: 'The ASUS ROG Strix XG279Q is a 27-inch QHD gaming monitor with a 170Hz refresh rate and ASUS Extreme Low Motion Blur Sync technology. It features HDR support and ASUS Aura Sync lighting.',  price: '$599',  ratings: { price: 3, performance: 5, quality: 5 },  image: 'IMG_20240625_224610.png'  },
+  {  id: 25.6,  title: 'ASUS ProArt PA248QV',  description: 'The ASUS ProArt PA248QV is a 24-inch Full HD monitor with factory calibration and ASUS ProArt Calibration technology. It offers accurate colors and ergonomic adjustments.',  price: '$249',  ratings: { price: 5, performance: 4, quality: 4 }, image: 'IMG_20240625_224337.jpg' },
+  {  id: 26.6,  title: 'ASUS VG248QG',  description: 'The ASUS VG248QG is a 24-inch Full HD gaming monitor with a 165Hz refresh rate and ASUS Extreme Low Motion Blur technology. It offers smooth and responsive gameplay.',  price: '$199',  ratings: { price: 5, performance: 4, quality: 4 },   image: 'IMG_20240625_224921.jpg'  },
+  {  id: 27.6,  title: 'ASUS ProArt PA329C',  description: 'The ASUS ProArt PA329C is a 32-inch 4K UHD monitor with factory calibration and HDR support. It offers excellent color accuracy and extensive connectivity options.', price: '$1,299', ratings: { price: 3, performance: 5, quality: 5 }, image: 'IMG_20240625_225123.png'   },
+  {  id: 28.6, title: 'ASUS VA24EHE',  description: 'The ASUS VA24EHE is a 24-inch Full HD monitor with an IPS panel and ASUS Eye Care technology. It features a slim design and is ideal for everyday computing tasks.',   price: '$129',  ratings: { price: 5, performance: 4, quality: 4 },image: 'IMG_20240625_225225.png' }
+  ],
+  
+  
+  
+
+ Acer: [
+ { id: 21.7, title: 'Acer Predator XB273K', description: 'The Acer Predator XB273K is a 27-inch 4K UHD gaming monitor with a 144Hz refresh rate and NVIDIA G-SYNC technology. It features an IPS panel for vibrant colors and wide viewing angles.', price: '$899', ratings: { price: 3, performance: 5, quality: 5 }, image: 'jxoJVYLQFtpzKLY5h9wHPR.jpg' },
+ { id: 22.7, title: 'Acer Nitro XV272U', description: 'The Acer Nitro XV272U is a 27-inch QHD gaming monitor with a 144Hz refresh rate and AMD FreeSync technology. It features an IPS panel for accurate colors and HDR support.', price: '$399', ratings: { price: 4, performance: 4, quality: 4 }, image: 'IMG_20240625_225438.jpg' },
+ { id: 23.7, title: 'Acer Predator X34', description: 'The Acer Predator X34 is a 34-inch ultra-wide QHD gaming monitor with a 120Hz refresh rate and NVIDIA G-SYNC technology. It offers an immersive gaming experience.', price: '$999', ratings: { price: 3, performance: 5, quality: 5 }, image: 'IMG_20240625_225552.png' },
+ { id: 24.7, title: 'Acer Nitro VG271U', description: 'The Acer Nitro VG271U is a 27-inch QHD gaming monitor with a 144Hz refresh rate and AMD FreeSync technology. It features an IPS panel for accurate colors and a slim bezel design.', price: '$349', ratings: { price: 4, performance: 4, quality: 4 }, image: 'IMG_20240625_225737.jpg' },
+ { id: 25.7, title: 'Acer Predator XB253Q', description: 'The Acer Predator XB253Q is a 24.5-inch Full HD gaming monitor with a 240Hz refresh rate and NVIDIA G-SYNC technology. It offers smooth and responsive gameplay for competitive gaming.', price: '$379', ratings: { price: 4, performance: 5, quality: 5 }, image: 'IMG_20240625_225857.png' },
+ { id: 26.7, title: 'Acer Nitro VG240Y', description: 'The Acer Nitro VG240Y is a 23.8-inch Full HD gaming monitor with a 144Hz refresh rate and AMD FreeSync technology. It features an IPS panel for vibrant colors and wide viewing angles.', price: '$199', ratings: { price: 5, performance: 4, quality: 4 }, image: 'IMG_20240625_230025.jpg' },
+ { id: 27.7, title: 'Acer Predator X27', description: 'The Acer Predator X27 is a 27-inch 4K UHD gaming monitor with a 144Hz refresh rate and NVIDIA G-SYNC Ultimate technology. It features Quantum Dot technology for vibrant colors and HDR support.', price: '$1,999', ratings: { price: 2, performance: 5, quality: 5 }, image: 'IMG_20240625_230120.jpg' },
+ { id: 28.7, title: 'Acer Nitro XV253Q', description: 'The Acer Nitro XV253Q is a 24.5-inch Full HD gaming monitor with a 240Hz refresh rate and AMD FreeSync Premium technology. It offers smooth and tear-free gameplay for competitive gaming.', price: '$379', ratings: { price: 4, performance: 5, quality: 5 },  image: 'IMG_20240625_230213.jpg' }
+ ],
+ 
+  
+  
+  
+  
+  
+  };
+ 
+ 
+  
+let currentCategory = '';
+let currentProductId = null;
+
+function showCategory() {
+document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+document.getElementById('category-page').classList.add('active');
+document.getElementById('join').style.display = 'block';
+document.getElementById('feature').style.display = 'flex';
+document.querySelector('.back-button').style.display = 'block';
+}
+
+function showProducts(category) {
+const productsPage = document.getElementById('products-page');
+const productsList = document.getElementById('products-list');
+const categoryTitle = document.getElementById('category-title');
+
+currentCategory = category;
+
+categoryTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+productsList.innerHTML = '';
+
+categories[category].forEach(product => {
+const productItem = document.createElement('li');
+const productLink = document.createElement('a');
+const productImage = document.createElement('img');
+
+productLink.innerHTML = `${product.title}`;
+productLink.href = "#";
+productLink.onclick = function(event) {
+event.preventDefault();
+showProductDetails(product.id, category);
+};
+
+productImage.src = product.image;
+productImage.alt = product.title;
+productImage.style.width = '100%';
+productImage.style.padding = '50px';
+
+productItem.appendChild(productImage);
+productItem.appendChild(productLink);
+
+productsList.appendChild(productItem);
+});
+
+document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+productsPage.classList.add('active');
+document.getElementById('join').style.display = 'none';
+document.getElementById('feature').style.display = 'none';
+document.querySelector('.back-button').style.display = 'none';
+}
+
+function showProductDetails(productId, category) {
+const product = categories[category].find(product => product.id === productId);
+currentProductId = productId;
+
+if (product) {
+document.getElementById('product-title').textContent = product.title;
+document.getElementById('product-description').textContent = product.description;
+document.getElementById('product-price').textContent = product.price;
+
+const productImage = document.getElementById('product-image');
+productImage.src = product.image;
+productImage.alt = product.title;
+productImage.style.width = '100%';
+
+const priceRatingStars = document.getElementById('price-rating-stars');
+//const qualityRatingStars = document.getElementById('quality-rating-stars');
+const performanceRatingStars = document.getElementById('performance-rating-stars');
+
+function renderStars(rating) {
+let stars = '';
+const filledStar = '&#9733;'; // Golden star symbol
+const emptyStar = '&#9734;'; // Empty star symbol
+
+for (let i = 0; i < 5; i++) {
+stars += i < rating ? `<span class="star filled">${filledStar}</span>` : `<span class="star empty">${emptyStar}</span>`;
+}
+return stars;
+}
+
+if (product.ratings) {
+priceRatingStars.innerHTML = renderStars(product.ratings.price);
+//qualityRatingStars.innerHTML = renderStars(product.ratings.quality);
+performanceRatingStars.innerHTML = renderStars(product.ratings.performance);
+} else {
+priceRatingStars.innerHTML = "Ratings not available";
+//qualityRatingStars.innerHTML = "Ratings not available";
+performanceRatingStars.innerHTML = "Ratings not available";
+}
+
+const feedbackList = document.getElementById('product-feedback');
+feedbackList.innerHTML = ''; // Clear previous feedback
+
+db.collection("feedback").where("productId", "==", productId).get().then((querySnapshot) => {
+if (querySnapshot.empty) {
+feedbackList.innerHTML = '<p>No feedback available for this product.</p>';
+} else {
+querySnapshot.forEach((doc) => {
+const feedback = doc.data();
+const feedbackItem = document.createElement('div');
+feedbackItem.className = 'feedback-item';
+feedbackItem.innerHTML = `
+<strong>${feedback.name}</strong>
+<p>${feedback.comments}</p>
+<p>Quality: ${renderStars(feedback.quality)}</p>
+<p>Performance: ${renderStars(feedback.performance)}</p>
+<p>Price: ${renderStars(feedback.price)}</p>
+<hr>
+`;
+feedbackList.appendChild(feedbackItem);
+});
+}
+}).catch((error) => {
+console.error("Error getting feedback: ", error);
+feedbackList.innerHTML = '<p>Error loading feedback. Please try again later.</p>';
+});
+
+document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+document.getElementById('product-details-page').classList.add('active');
+document.getElementById('join').style.display = 'none';
+document.getElementById('feature').style.display = 'none';
+document.querySelector('.back-button').style.display = 'none';
+}
+}
+
+function showRatingForm() {
+document.getElementById('product-details-page').classList.remove('active');
+document.getElementById('rating-form-page').classList.add('active');
+}
+
+function submitRatingForm(event) {
+event.preventDefault();
+
+const formData = new FormData(document.getElementById('rating-form'));
+
+const name = formData.get('name');
+const email = formData.get('email');
+const comments = formData.get('comments');
+const quality = formData.get('quality-rating');
+const performance = formData.get('performance-rating');
+const price = formData.get('price-rating');
+
+if (!name || !email || !comments || !quality || !performance || !price) {
+alert('Please fill out all required fields.');
+return;
+}
+
+db.collection("feedback").add({
+productId: currentProductId,
+name: name,
+email: email,
+comments: comments,
+quality: parseInt(quality),
+performance: parseInt(performance),
+price: parseInt(price),
+timestamp: firebase.firestore.FieldValue.serverTimestamp()
+}).then(() => {
+alert('Thank you for your feedback!');
+goBackToProduct();
+}).catch((error) => {
+console.error("Error adding feedback: ", error);
+});
+}
+
+function goBackToProduct() {
+document.getElementById('rating-form-page').classList.remove('active');
+document.getElementById('product-details-page').classList.add('active');
+}
+
+function goBackToProducts() {
+showProducts(currentCategory);
+}
+
+showCategory();
+
+
+
+
+
+
+</script>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+
+<script type="text/javascript">
+
+const firebaseConfig = {
+apiKey: "AIzaSyCgRM0qR_9Qx6eE6yqhy1xFTQ2nv-4qjwQ",
+authDomain: "feedback-82388.firebaseapp.com",
+databaseURL: "https://feedback-82388-default-rtdb.firebaseio.com",
+projectId: "feedback-82388",
+storageBucket: "feedback-82388.appspot.com",
+messagingSenderId: "632761007475",
+appId: "1:632761007475:web:00482a536ed18d11eb5906",
+measurementId: "G-NJH64H38TH"
+};
+
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+//firebase.database().ref('feedback');
+document.getElementById('rating-form').addEventListener('submit', submitRatingForm);
+
+</script>
+  
+  
+  
+ 
+ 
+</body>
+</html>
